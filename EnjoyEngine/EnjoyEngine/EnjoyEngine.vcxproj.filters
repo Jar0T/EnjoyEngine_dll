@@ -19,6 +19,12 @@
     <Filter Include="Pliki źródłowe\Time">
       <UniqueIdentifier>{2df94ffb-f1f0-4410-a755-d4a31157832c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\State machine">
+      <UniqueIdentifier>{1bf71cf3-6305-49df-b274-02b5c2d2a04f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\State machine">
+      <UniqueIdentifier>{96cd012a-9b63-48d2-a351-6f4e72fdbf2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -36,6 +42,15 @@
     <ClInclude Include="Time.hpp">
       <Filter>Pliki nagłówkowe\Time</Filter>
     </ClInclude>
+    <ClInclude Include="State.hpp">
+      <Filter>Pliki nagłówkowe\State machine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.hpp">
+      <Filter>Pliki nagłówkowe\State machine</Filter>
+    </ClInclude>
+    <ClInclude Include="TestState.hpp">
+      <Filter>Pliki nagłówkowe\State machine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -49,6 +64,15 @@
     </ClCompile>
     <ClCompile Include="Time.cpp">
       <Filter>Pliki źródłowe\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Pliki źródłowe\State machine</Filter>
+    </ClCompile>
+    <ClCompile Include="TestState.cpp">
+      <Filter>Pliki źródłowe\State machine</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Pliki źródłowe\State machine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
