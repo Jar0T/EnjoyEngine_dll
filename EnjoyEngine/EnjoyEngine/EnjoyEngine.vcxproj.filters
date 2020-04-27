@@ -48,6 +48,9 @@
     <ClInclude Include="StateMachine.hpp">
       <Filter>Pliki nagłówkowe\State machine</Filter>
     </ClInclude>
+    <ClInclude Include="TestState.hpp">
+      <Filter>Pliki nagłówkowe\State machine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -61,6 +64,15 @@
     </ClCompile>
     <ClCompile Include="Time.cpp">
       <Filter>Pliki źródłowe\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Pliki źródłowe\State machine</Filter>
+    </ClCompile>
+    <ClCompile Include="TestState.cpp">
+      <Filter>Pliki źródłowe\State machine</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Pliki źródłowe\State machine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
