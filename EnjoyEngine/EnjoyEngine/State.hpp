@@ -6,7 +6,7 @@ namespace EE {
 
 	public:
 		State() {};
-		virtual ~State() = 0;
+		virtual ~State();
 
 		virtual void update() = 0;
 		virtual void handleEvents() = 0;
