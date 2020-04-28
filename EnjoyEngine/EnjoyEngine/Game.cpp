@@ -11,12 +11,6 @@
 #include "State.hpp"
 
 namespace EE {
-	int Game::Init() {
-
-
-		return 0;
-	}
-
 	int Game::Play() {
 		float lastUpdate = 0.f;
 		while (GameData::window().isOpen()) {

@@ -21,8 +21,7 @@ namespace EE {
 		sf::Clock _clock;
 
 	public:
-		int Init();
-
 		int Play();
+
 	};
 }
