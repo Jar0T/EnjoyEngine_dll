@@ -25,6 +25,12 @@
     <Filter Include="Pliki źródłowe\State machine">
       <UniqueIdentifier>{96cd012a-9b63-48d2-a351-6f4e72fdbf2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Game data">
+      <UniqueIdentifier>{b55a1013-db3a-4d47-b78c-97b70d13d144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Game data">
+      <UniqueIdentifier>{f0f6812c-6a36-44b7-9af9-f547e7f3edcf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -48,8 +54,8 @@
     <ClInclude Include="StateMachine.hpp">
       <Filter>Pliki nagłówkowe\State machine</Filter>
     </ClInclude>
-    <ClInclude Include="TestState.hpp">
-      <Filter>Pliki nagłówkowe\State machine</Filter>
+    <ClInclude Include="GameData.hpp">
+      <Filter>Pliki nagłówkowe\Game data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,11 +74,11 @@
     <ClCompile Include="StateMachine.cpp">
       <Filter>Pliki źródłowe\State machine</Filter>
     </ClCompile>
-    <ClCompile Include="TestState.cpp">
-      <Filter>Pliki źródłowe\State machine</Filter>
-    </ClCompile>
     <ClCompile Include="State.cpp">
       <Filter>Pliki źródłowe\State machine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameData.cpp">
+      <Filter>Pliki źródłowe\Game data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
