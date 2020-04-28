@@ -1,7 +1,13 @@
 #pragma once
 
+#ifdef ENJOYENGINE_EXPORTS
+#define ENJOYENGINE_API __declspec(dllexport)
+#else
+#define ENJOYENGINE_API __declspec(dllimport)
+#endif
+
 namespace EE {
-	class State {
+	class ENJOYENGINE_API State {
 	private:
 
 	public:
