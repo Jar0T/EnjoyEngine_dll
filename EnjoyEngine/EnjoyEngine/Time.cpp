@@ -9,7 +9,7 @@
 namespace EE {
 	Time* Time::_time = 0;
 
-	Time::Time() : _deltaTime(0.f) {}
+	Time::Time() : _deltaTime(0.f), _elapsedTime(0.f) {}
 
 	Time::~Time() {
 		if (_time)
@@ -22,9 +22,11 @@ namespace EE {
 		return _time->_deltaTime;
 	}
 
-	void Time::setDeltaTime(float deltaTime) {
+	void Time::updateTime() {
 		if (!_time)
 			_time = new Time();
-		_time->_deltaTime = deltaTime;
+		float timeNow = _time->_clock.getElapsedTime().asSeconds();
+		_time->_deltaTime = timeNow - _time->_elapsedTime;
+		_time->_elapsedTime = timeNow;
 	}
 }
