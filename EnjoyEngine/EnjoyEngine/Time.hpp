@@ -16,12 +16,14 @@ namespace EE {
 	private:
 		static Time* _time;
 		float _deltaTime;
+		float _elapsedTime;
+		sf::Clock _clock;
 
 		Time();
 		Time(const Time&) = delete;
 		Time& operator=(const Time&) = delete;
 
-		static void setDeltaTime(float deltaTime);
+		static void updateTime();
 
 		friend int Game::Play();
 

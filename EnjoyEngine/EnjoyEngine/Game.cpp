@@ -12,10 +12,8 @@
 
 namespace EE {
 	int Game::Play() {
-		float lastUpdate = 0.f;
 		while (GameData::window().isOpen()) {
-			Time::setDeltaTime(this->_clock.getElapsedTime().asSeconds() - lastUpdate);
-			lastUpdate = this->_clock.getElapsedTime().asSeconds();
+			Time::updateTime();
 
 			std::shared_ptr<State> state = StateMachine::getActiveState();
 			if (state != nullptr) {

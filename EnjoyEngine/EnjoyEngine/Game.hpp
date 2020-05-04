@@ -18,7 +18,6 @@
 namespace EE {
 	class ENJOYENGINE_API Game {
 	private:
-		sf::Clock _clock;
 
 	public:
 		int Play();
