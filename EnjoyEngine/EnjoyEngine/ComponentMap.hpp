@@ -22,5 +22,9 @@ namespace EE {
 			_componentMap.erase(entityID);
 		}
 
+		std::map<EntityID, T*>& getMap() {
+			return _componentMap;
+		}
+
 	};
 }
