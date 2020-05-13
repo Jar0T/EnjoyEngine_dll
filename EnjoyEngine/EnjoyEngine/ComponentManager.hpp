@@ -64,6 +64,16 @@ namespace EE {
 			_componentManager->getComponentMap<T>()->removeComponent(entityID);
 		}
 
+		template<typename T>
+		static bool hasComponent(EntityID entityID) {
+			if (_componentManager == 0)
+				_componentManager = new ComponentManager();
+
+			if (_componentManager->getComponentMap<T>()->getMap().find(entityID) == _componentManager->getComponentMap<T>()->getMap().end())
+				return false;
+			return true;
+		}
+
 		static void deleteAllFromEntity(EntityID entityID) {
 			if (_componentManager == 0)
 				_componentManager = new ComponentManager();
