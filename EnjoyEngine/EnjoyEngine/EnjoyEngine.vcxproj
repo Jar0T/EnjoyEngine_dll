@@ -163,16 +163,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Component.hpp" />
+    <ClInclude Include="ComponentManager.hpp" />
+    <ClInclude Include="ComponentMap.hpp" />
     <ClInclude Include="EnjoyEngine.hpp" />
+    <ClInclude Include="Entity.hpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameData.hpp" />
+    <ClInclude Include="IComponentMap.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateMachine.hpp" />
     <ClInclude Include="Time.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ComponentManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameData.cpp" />
