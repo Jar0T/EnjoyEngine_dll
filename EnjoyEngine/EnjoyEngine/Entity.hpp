@@ -32,7 +32,8 @@ namespace EE {
 		/// <param name="component">Component pointer</param>
 		template<typename T>
 		void addComponent(T* component) {
-			ComponentManager::addComponent<T>(entityID, component);
+			if (!ComponentManager::hasComponent<T>(entityID))
+				ComponentManager::addComponent<T>(entityID, component);
 		}
 
 		/// <summary>
@@ -47,6 +48,7 @@ namespace EE {
 
 		/// <summary>
 		/// Getter for entitie's specific component
+		/// hasComponent method must be called befor this method is called
 		/// </summary>
 		/// <typeparam name="T">Derived component class</typeparam>
 		/// <returns>Reference to component</returns>
@@ -61,7 +63,8 @@ namespace EE {
 		/// <typeparam name="T">Derived component class</typeparam>
 		template<typename T>
 		void removeComponent() {
-			ComponentManager::removeComponent<T>(entityID);
+			if (ComponentManager::hasComponent<T>(entityID))
+				ComponentManager::removeComponent<T>(entityID);
 		}
 	};
 }
