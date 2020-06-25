@@ -57,6 +57,10 @@ namespace EE {
 		/// </summary>
 		/// <param name="fullscreen">true if window should be fullscreen, false otherwise</param>
 		static void setWindowFullscreen(bool fullscreen);
+		/// <summary>
+		/// Method called from event handler when window is resized
+		/// </summary>
+		static void onWindowResize();
 
 	};
 }
