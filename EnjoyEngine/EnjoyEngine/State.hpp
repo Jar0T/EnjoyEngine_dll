@@ -7,6 +7,10 @@
 #endif
 
 namespace EE {
+	/// <summary>
+	/// <para>Base state class. Pure virtual.</para>
+	/// <para>Use this class while creating your own states</para>
+	/// </summary>
 	class ENJOYENGINE_API State {
 	private:
 
@@ -14,7 +18,15 @@ namespace EE {
 		State() {};
 		virtual ~State();
 
+		/// <summary>
+		/// <para>Called every frame. Call your updates here.</para>
+		/// <para>Override this method in your state.</para>
+		/// </summary>
 		virtual void update() = 0;
+		/// <summary>
+		/// <para>Called every frame. Put event handling here.</para>
+		/// <para>Override this method in your state.</para>
+		/// </summary>
 		virtual void handleEvents() = 0;
 
 	};

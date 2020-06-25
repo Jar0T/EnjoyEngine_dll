@@ -12,7 +12,7 @@ namespace EE {
 
 	GameData::GameData() {
 		_window = new sf::RenderWindow();
-		_window->create(sf::VideoMode(800, 600), "Window", sf::Style::Default);
+		_window->create(sf::VideoMode::getFullscreenModes()[0], "Window", sf::Style::Default);
 		_title = "Window";
 	}
 

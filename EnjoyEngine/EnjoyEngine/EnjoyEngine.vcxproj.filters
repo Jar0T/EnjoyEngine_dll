@@ -31,6 +31,30 @@
     <Filter Include="Pliki źródłowe\Game data">
       <UniqueIdentifier>{f0f6812c-6a36-44b7-9af9-f547e7f3edcf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\ECS">
+      <UniqueIdentifier>{32efb63c-0046-49b6-b42e-362bc0e5f334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\ECS">
+      <UniqueIdentifier>{511aa304-4ed6-4928-9fe7-05f0ab29fb84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\ECS\Entity">
+      <UniqueIdentifier>{107737fc-c510-4d0c-b8dc-c503ca564aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\ECS\Component">
+      <UniqueIdentifier>{8905fb1f-c871-47dc-ae5c-f432a42bc5b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\ECS\System">
+      <UniqueIdentifier>{4e767534-0207-4c1a-a996-f9921e21e0e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\ECS\Entity">
+      <UniqueIdentifier>{e93e3649-5434-4632-a533-c2198358dbbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\ECS\Component">
+      <UniqueIdentifier>{114cd8f9-b311-459b-9562-7cfcea32a003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\ECS\System">
+      <UniqueIdentifier>{1780e943-e118-4e00-88aa-98192fcc7d71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -57,6 +81,30 @@
     <ClInclude Include="GameData.hpp">
       <Filter>Pliki nagłówkowe\Game data</Filter>
     </ClInclude>
+    <ClInclude Include="Component.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentManager.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentMap.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="IComponentMap.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="System.hpp">
+      <Filter>Pliki nagłówkowe\ECS\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemManager.hpp">
+      <Filter>Pliki nagłówkowe\ECS\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -79,6 +127,21 @@
     </ClCompile>
     <ClCompile Include="GameData.cpp">
       <Filter>Pliki źródłowe\Game data</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentManager.cpp">
+      <Filter>Pliki źródłowe\ECS\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Pliki źródłowe\ECS\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Pliki źródłowe\ECS\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Pliki źródłowe\ECS\System</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemManager.cpp">
+      <Filter>Pliki źródłowe\ECS\System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

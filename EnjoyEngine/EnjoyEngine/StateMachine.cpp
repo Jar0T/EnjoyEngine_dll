@@ -33,6 +33,14 @@ namespace EE {
 		}
 	}
 
+	void StateMachine::removeState() {
+		if (_stateMachine == 0)
+			_stateMachine = new StateMachine();
+
+		if (_stateMachine->_states->size() > 0)
+			_stateMachine->_states->pop();
+	}
+
 	std::shared_ptr<State> StateMachine::getActiveState() {
 		if (_stateMachine == 0)
 			_stateMachine = new StateMachine();
