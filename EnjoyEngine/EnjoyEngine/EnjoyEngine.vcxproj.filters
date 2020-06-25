@@ -96,6 +96,15 @@
     <ClInclude Include="IComponentMap.hpp">
       <Filter>Pliki nagłówkowe\ECS\Component</Filter>
     </ClInclude>
+    <ClInclude Include="EntityManager.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="System.hpp">
+      <Filter>Pliki nagłówkowe\ECS\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemManager.hpp">
+      <Filter>Pliki nagłówkowe\ECS\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -121,6 +130,18 @@
     </ClCompile>
     <ClCompile Include="ComponentManager.cpp">
       <Filter>Pliki źródłowe\ECS\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Pliki źródłowe\ECS\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Pliki źródłowe\ECS\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Pliki źródłowe\ECS\System</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemManager.cpp">
+      <Filter>Pliki źródłowe\ECS\System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,7 +3,6 @@
 #include <memory>
 
 #include "Component.hpp"
-#include "Entity.hpp"
 #include "ComponentMap.hpp"
 
 #ifdef ENJOYENGINE_EXPORTS
@@ -13,6 +12,9 @@
 #endif
 
 namespace EE {
+	/// <summary>
+	/// Component manager class. This class should never be used by user
+	/// </summary>
 	class ENJOYENGINE_API ComponentManager {
 	private:
 		static ComponentManager* _componentManager;
@@ -26,6 +28,11 @@ namespace EE {
 	public:
 		~ComponentManager() {};
 
+		/// <summary>
+		/// Method for getting map of all components of specific type
+		/// </summary>
+		/// <typeparam name="T">Derived component class</typeparam>
+		/// <returns><c>std::shared_ptr</c> to map of components of T type</returns>
 		template<typename T>
 		static std::shared_ptr<ComponentMap<T>> getComponentMap() {
 			if (_componentManager == 0)
@@ -40,32 +47,55 @@ namespace EE {
 			return std::static_pointer_cast<ComponentMap<T>>(_componentManager->_componentMap[typeID]);
 		}
 
+		/// <summary>
+		/// Adds new component to map
+		/// </summary>
+		/// <typeparam name="T">Derived component class</typeparam>
+		/// <param name="entityID">ID of entity that component should be added to</param>
+		/// <param name="component">Pointer to component</param>
 		template<typename T>
-		static void addComponent(EntityID entityID, T* component) {
+		static void addComponent(std::uint32_t entityID, T* component) {
 			if (_componentManager == 0)
 				_componentManager = new ComponentManager();
 
 			_componentManager->getComponentMap<T>()->addComponent(entityID, component);
 		}
 
+		/// <summary>
+		/// Getter for entitie's component
+		/// </summary>
+		/// <typeparam name="T">Derived component class</typeparam>
+		/// <param name="entityID">ID of entity</param>
+		/// <returns>Entitie's component pointer</returns>
 		template<typename T>
-		static T* getComponent(EntityID entityID) {
+		static T* getComponent(std::uint32_t entityID) {
 			if (_componentManager == 0)
 				_componentManager = new ComponentManager();
 
 			return _componentManager->getComponentMap<T>()->getComponent(entityID);
 		}
 
+		/// <summary>
+		/// Removes component from entity
+		/// </summary>
+		/// <typeparam name="T">Derived component class</typeparam>
+		/// <param name="entityID">ID of entity</param>
 		template<typename T>
-		static void removeComponent(EntityID entityID) {
+		static void removeComponent(std::uint32_t entityID) {
 			if (_componentManager == 0)
 				_componentManager = new ComponentManager();
 
 			_componentManager->getComponentMap<T>()->removeComponent(entityID);
 		}
 
+		/// <summary>
+		/// Checks if entity has component
+		/// </summary>
+		/// <typeparam name="T">Derived component class</typeparam>
+		/// <param name="entityID">ID of entity</param>
+		/// <returns><c>true</c> if entity has component, <c>false</c> otherwise</returns>
 		template<typename T>
-		static bool hasComponent(EntityID entityID) {
+		static bool hasComponent(std::uint32_t entityID) {
 			if (_componentManager == 0)
 				_componentManager = new ComponentManager();
 
@@ -74,7 +104,11 @@ namespace EE {
 			return true;
 		}
 
-		static void deleteAllFromEntity(EntityID entityID) {
+		/// <summary>
+		/// Deletes every component from specific entity
+		/// </summary>
+		/// <param name="entityID">ID of entity</param>
+		static void deleteAllFromEntity(std::uint32_t entityID) {
 			if (_componentManager == 0)
 				_componentManager = new ComponentManager();
 

@@ -12,6 +12,9 @@
 #endif
 
 namespace EE {
+	/// <summary>
+	/// Class managing game states. Created as singletone
+	/// </summary>
 	class ENJOYENGINE_API StateMachine {
 	private:
 		static StateMachine* _stateMachine;
@@ -24,7 +27,20 @@ namespace EE {
 	public:
 		~StateMachine();
 
+		/// <summary>
+		/// Method adding new state to states stack
+		/// </summary>
+		/// <param name="state"><c>std::shared_ptr</c> to a state</param>
+		/// <param name="isReplacing">Tells if previous state should be removed from stack. Default value is true</param>
 		static void addState(std::shared_ptr<State> state, bool isReplacing = true);
+		/// <summary>
+		/// Method for manual removing of states from stack
+		/// </summary>
+		static void removeState();
+		/// <summary>
+		/// Method for getting active state from stack
+		/// </summary>
+		/// <returns><c>std::shared_ptr</c> to active state</returns>
 		static std::shared_ptr<State> getActiveState();
 
 	};

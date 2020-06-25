@@ -1,10 +1,12 @@
 #pragma once
-#include "Entity.hpp"
 
 namespace EE {
+	/// <summary>
+	/// Interface for ComponentMap class
+	/// </summary>
 	class IComponentMap {
 	public:
 		virtual ~IComponentMap() = default;
-		virtual void removeComponent(EntityID entityID) = 0;
+		virtual void removeComponent(std::uint32_t entityID) = 0;
 	};
 }

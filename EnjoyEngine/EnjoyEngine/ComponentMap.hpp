@@ -3,26 +3,48 @@
 #include "IComponentMap.hpp"
 
 namespace EE {
+	/// <summary>
+	/// Class storing all components of specific type
+	/// </summary>
+	/// <typeparam name="T">Derived component class</typeparam>
 	template<typename T>
 	class ComponentMap : public IComponentMap {
 	private:
-		std::map<EntityID, T*> _componentMap;
+		std::map<std::uint32_t, T*> _componentMap;
 
 	public:
-		T* getComponent(EntityID entityID) {
+		/// <summary>
+		/// Gets specific component from component map
+		/// </summary>
+		/// <param name="entityID">ID of entity possessing component</param>
+		/// <returns>Component pointer</returns>
+		T* getComponent(std::uint32_t entityID) {
 			return _componentMap[entityID];
 		}
 
-		void addComponent(EntityID entityID, T* component) {
+		/// <summary>
+		/// Adds Component to specific entity
+		/// </summary>
+		/// <param name="entityID">ID of entity component should be added to</param>
+		/// <param name="component">Pointer to component</param>
+		void addComponent(std::uint32_t entityID, T* component) {
 			_componentMap[entityID] = component;
 		}
 
-		void removeComponent(EntityID entityID) override {
+		/// <summary>
+		/// Removes component from specific entity
+		/// </summary>
+		/// <param name="entityID">ID of entity which component should be removed</param>
+		void removeComponent(std::uint32_t entityID) override {
 			delete _componentMap[entityID];
 			_componentMap.erase(entityID);
 		}
 
-		std::map<EntityID, T*>& getMap() {
+		/// <summary>
+		/// Getter for full map of components
+		/// </summary>
+		/// <returns>Reference to <c>std::map</c> of components</returns>
+		std::map<std::uint32_t, T*>& getMap() {
 			return _componentMap;
 		}
 
