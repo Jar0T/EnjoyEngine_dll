@@ -153,6 +153,12 @@
     <ClInclude Include="AABBvsAABBCollisionSystem.hpp">
       <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
     </ClInclude>
+    <ClInclude Include="CirclevsCircleCollisionSystem.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
+    </ClInclude>
+    <ClInclude Include="AABBvsCircleCollisionSystem.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -210,6 +216,15 @@
       <Filter>Pliki źródłowe\ECS\Component</Filter>
     </ClCompile>
     <ClCompile Include="Transform2DSystem.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
+    </ClCompile>
+    <ClCompile Include="AABBvsAABBCollisionSystem.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
+    </ClCompile>
+    <ClCompile Include="CirclevsCircleCollisionSystem.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
+    </ClCompile>
+    <ClCompile Include="AABBvsCircleCollisionSystem.cpp">
       <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
     </ClCompile>
   </ItemGroup>
