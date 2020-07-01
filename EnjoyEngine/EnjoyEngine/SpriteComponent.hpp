@@ -32,6 +32,18 @@ namespace EE {
 		int _layer;
 
 	public:
+		enum class Origin {
+			TOP_LEFT,
+			TOP_MIDDLE,
+			TOP_RIGHT,
+			MIDDLE_LEFT,
+			MIDDLE,
+			MIDDLE_RIGHT,
+			BOTTOM_LEFT,
+			BOTTOM_MIDDLE,
+			BOTTOM_RIGHT
+		};
+
 		SpriteComponent(int spriteWidth, int spriteHeight);
 		~SpriteComponent();
 
@@ -51,6 +63,11 @@ namespace EE {
 		int getActiveSpriteIndex();
 
 		int& layer();
+
+		void setSpriteOrigin(float x, float y);
+		void setSpriteOrigin(Origin origin);
+
+		void setSpritePosition(float x, float y);
 
 	};
 }

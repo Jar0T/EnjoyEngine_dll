@@ -82,5 +82,54 @@ namespace EE {
 		return _layer;
 	}
 
+	void SpriteComponent::setSpriteOrigin(float x, float y) {
+		for (auto& animation : _animations) {
+			for (auto& sprite : animation) {
+				sprite.setOrigin(x, y);
+			}
+		}
+	}
+
+	void SpriteComponent::setSpriteOrigin(Origin origin) {
+		switch (origin) {
+		case EE::SpriteComponent::Origin::TOP_LEFT:
+			setSpriteOrigin(0.f, 0.f);
+			break;
+		case EE::SpriteComponent::Origin::TOP_MIDDLE:
+			setSpriteOrigin(0.f, (float)_spriteWidth / 2.f);
+			break;
+		case EE::SpriteComponent::Origin::TOP_RIGHT:
+			setSpriteOrigin(0.f, (float)_spriteWidth);
+			break;
+		case EE::SpriteComponent::Origin::MIDDLE_LEFT:
+			setSpriteOrigin((float)_spriteHeight / 2.f, 0.f);
+			break;
+		case EE::SpriteComponent::Origin::MIDDLE:
+			setSpriteOrigin((float)_spriteHeight / 2.f, (float)_spriteWidth / 2.f);
+			break;
+		case EE::SpriteComponent::Origin::MIDDLE_RIGHT:
+			setSpriteOrigin((float)_spriteHeight / 2.f, (float)_spriteWidth);
+			break;
+		case EE::SpriteComponent::Origin::BOTTOM_LEFT:
+			setSpriteOrigin((float)_spriteHeight, 0.f);
+			break;
+		case EE::SpriteComponent::Origin::BOTTOM_MIDDLE:
+			setSpriteOrigin((float)_spriteHeight, (float)_spriteWidth / 2.f);
+			break;
+		case EE::SpriteComponent::Origin::BOTTOM_RIGHT:
+			setSpriteOrigin((float)_spriteHeight, (float)_spriteWidth);
+			break;
+		default:
+			break;
+		}
+	}
+
+	void SpriteComponent::setSpritePosition(float x, float y) {
+		for (auto& animation : _animations) {
+			for (auto& sprite : animation) {
+				sprite.setPosition(x, y);
+			}
+		}
+	}
 
 }
