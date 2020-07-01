@@ -67,6 +67,12 @@
     <Filter Include="Pliki źródłowe\Asset managers">
       <UniqueIdentifier>{dfd1b0fc-2233-4add-b07d-3eb2c6c5c328}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Helpers">
+      <UniqueIdentifier>{929eff08-632e-4162-b98e-a6f5a7c2171f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Helpers">
+      <UniqueIdentifier>{665f92d0-1015-4a79-bff3-008e0189a2f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -123,6 +129,18 @@
     <ClInclude Include="TextureManager.hpp">
       <Filter>Pliki nagłówkowe\Asset managers</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2D.hpp">
+      <Filter>Pliki nagłówkowe\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform2DComponent.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider2DComponent.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
+    </ClInclude>
+    <ClInclude Include="AABBCollider2DComponent.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -166,6 +184,15 @@
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Pliki źródłowe\Asset managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform2DComponent.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider2DComponent.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
+    </ClCompile>
+    <ClCompile Include="AABBCollider2DComponent.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

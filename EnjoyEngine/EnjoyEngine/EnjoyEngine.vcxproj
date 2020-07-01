@@ -167,6 +167,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AABBCollider2DComponent.hpp" />
+    <ClInclude Include="CircleCollider2DComponent.hpp" />
     <ClInclude Include="Component.hpp" />
     <ClInclude Include="ComponentManager.hpp" />
     <ClInclude Include="ComponentMap.hpp" />
@@ -185,8 +187,12 @@
     <ClInclude Include="SystemManager.hpp" />
     <ClInclude Include="TextureManager.hpp" />
     <ClInclude Include="Time.hpp" />
+    <ClInclude Include="Transform2DComponent.hpp" />
+    <ClInclude Include="Vector2D.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AABBCollider2DComponent.cpp" />
+    <ClCompile Include="CircleCollider2DComponent.cpp" />
     <ClCompile Include="ComponentManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -206,6 +212,7 @@
     <ClCompile Include="SystemManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Transform2DComponent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
