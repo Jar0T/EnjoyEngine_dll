@@ -2,6 +2,7 @@
 
 #include "System.hpp"
 #include "AABBCollider2DComponent.hpp"
+#include "Transform2DComponent.hpp"
 
 #ifdef ENJOYENGINE_EXPORTS
 #define ENJOYENGINE_API __declspec(dllexport)
