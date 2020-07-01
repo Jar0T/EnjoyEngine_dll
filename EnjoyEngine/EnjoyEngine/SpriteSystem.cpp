@@ -14,7 +14,7 @@ namespace EE {
 	void SpriteSystem::update() {
 		std::map<int, sf::RenderTexture*> renderTextures;
 		std::vector<int> keys;
-		Vector2D<float> position;
+		Vector2D<float> position{ 0.f, 0.f };
 		for (auto& entity : EntityManager::getEntities()) {
 			SpriteComponent* sprite = ComponentManager::getComponent<SpriteComponent>(entity);
 			Transform2DComponent* transform = ComponentManager::getComponent<Transform2DComponent>(entity);
@@ -29,8 +29,9 @@ namespace EE {
 						renderTextures[layer]->clear(sf::Color::Transparent);
 						keys.push_back(layer);
 					}
-					renderTextures[layer]->draw(*sprite->getActiveSprite());
+					sprite->setSpritePosition(position.x, position.y);
 					sprite->updateFrameTime();
+					renderTextures[layer]->draw(*sprite->getActiveSprite());
 				}
 			}
 		}
