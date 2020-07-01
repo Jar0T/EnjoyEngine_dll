@@ -1,5 +1,9 @@
 #pragma once
 
+#include "Time.hpp"
+#include "EntityManager.hpp"
+#include "ComponentManager.hpp"
+
 #ifdef ENJOYENGINE_EXPORTS
 #define ENJOYENGINE_API __declspec(dllexport)
 #else

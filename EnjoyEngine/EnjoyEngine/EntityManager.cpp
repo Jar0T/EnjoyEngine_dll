@@ -39,4 +39,11 @@ namespace EE {
 		_entityManager->entities.erase(std::remove(_entityManager->entities.begin(), _entityManager->entities.end(), ID), _entityManager->entities.end());
 		_entityManager->_freeIDs.push(ID);
 	}
+
+	std::vector<std::uint32_t> EntityManager::getEntities() {
+		if (_entityManager == 0)
+			// TO DO throw exception
+
+		return _entityManager->entities;
+	}
 }

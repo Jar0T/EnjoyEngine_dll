@@ -168,7 +168,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider2DComponent.hpp" />
+    <ClInclude Include="AABBvsAABBCollisionSystem.hpp" />
+    <ClInclude Include="AABBvsCircleCollisionSystem.hpp" />
     <ClInclude Include="CircleCollider2DComponent.hpp" />
+    <ClInclude Include="CirclevsCircleCollisionSystem.hpp" />
     <ClInclude Include="Component.hpp" />
     <ClInclude Include="ComponentManager.hpp" />
     <ClInclude Include="ComponentMap.hpp" />
@@ -181,6 +184,7 @@
     <ClInclude Include="IComponentMap.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SpriteComponent.hpp" />
+    <ClInclude Include="SpriteSystem.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateMachine.hpp" />
     <ClInclude Include="System.hpp" />
@@ -188,11 +192,15 @@
     <ClInclude Include="TextureManager.hpp" />
     <ClInclude Include="Time.hpp" />
     <ClInclude Include="Transform2DComponent.hpp" />
+    <ClInclude Include="Transform2DSystem.hpp" />
     <ClInclude Include="Vector2D.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AABBCollider2DComponent.cpp" />
+    <ClCompile Include="AABBvsAABBCollisionSystem.cpp" />
+    <ClCompile Include="AABBvsCircleCollisionSystem.cpp" />
     <ClCompile Include="CircleCollider2DComponent.cpp" />
+    <ClCompile Include="CirclevsCircleCollisionSystem.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
@@ -207,6 +215,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="SpriteSystem.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="System.cpp" />
@@ -214,6 +223,7 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transform2DComponent.cpp" />
+    <ClCompile Include="Transform2DSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

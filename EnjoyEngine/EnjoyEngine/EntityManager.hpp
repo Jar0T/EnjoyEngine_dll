@@ -44,6 +44,12 @@ namespace EE {
 		static void entityDestroyed(std::uint32_t ID);
 
 		/// <summary>
+		/// Method returning every ID in use
+		/// </summary>
+		/// <returns>ID's used at this moment</returns>
+		static std::vector<std::uint32_t> getEntities();
+
+		/// <summary>
 		/// Vector of active entitie's IDs
 		/// </summary>
 		std::vector<std::uint32_t> entities;
