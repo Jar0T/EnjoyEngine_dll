@@ -1,6 +1,12 @@
 #pragma once
 #include <iostream>
 
+#ifdef ENJOYENGINE_EXPORTS
+#define ENJOYENGINE_API __declspec(dllexport)
+#else
+#define ENJOYENGINE_API __declspec(dllimport)
+#endif
+
 namespace EE {
 	using ComponentTypeID = std::uint32_t;
 
@@ -29,9 +35,15 @@ namespace EE {
 	/// <summary>
 	/// Base component class. All components should derive from it.
 	/// </summary>
-	class Component {
+	class ENJOYENGINE_API Component {
+	private:
+		int _stackLayer;
+
 	public:
-		Component() {}
-		virtual ~Component() {};
+		Component();
+		virtual ~Component();
+
+		int getStackLayer();
+		void setStackLayer(int stackLayer);
 	};
 }

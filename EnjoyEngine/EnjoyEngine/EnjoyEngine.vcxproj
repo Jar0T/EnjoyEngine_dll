@@ -193,6 +193,7 @@
   <ItemGroup>
     <ClCompile Include="AABBCollider2DComponent.cpp" />
     <ClCompile Include="CircleCollider2DComponent.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Entity.cpp" />

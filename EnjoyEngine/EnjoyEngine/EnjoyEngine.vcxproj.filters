@@ -194,5 +194,8 @@
     <ClCompile Include="AABBCollider2DComponent.cpp">
       <Filter>Pliki źródłowe\ECS\Basic components</Filter>
     </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Pliki źródłowe\ECS\Component</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
