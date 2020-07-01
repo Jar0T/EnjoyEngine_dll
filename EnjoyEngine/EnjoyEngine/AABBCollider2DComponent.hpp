@@ -11,14 +11,12 @@
 namespace EE {
 	class ENJOYENGINE_API AABBCollider2DComponent : public Component {
 	private:
-		Vector2D<float> _position;
 		Vector2D<float> _size;
 
 	public:
 		AABBCollider2DComponent();
 		~AABBCollider2DComponent();
 
-		Vector2D<float>& position();
 		Vector2D<float>& size();
 
 	};
