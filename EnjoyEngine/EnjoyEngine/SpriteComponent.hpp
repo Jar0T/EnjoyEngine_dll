@@ -29,6 +29,7 @@ namespace EE {
 		int _spriteWidth;
 		int _spriteHeight;
 		int _textureID;
+		int _layer;
 
 	public:
 		SpriteComponent(int spriteWidth, int spriteHeight);
@@ -48,6 +49,8 @@ namespace EE {
 		void changeAnimation(int animationIndex);
 		int getActiveAnimationIndex();
 		int getActiveSpriteIndex();
+
+		int& layer();
 
 	};
 }

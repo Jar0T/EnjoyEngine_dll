@@ -12,6 +12,7 @@ namespace EE {
 		_spriteWidth = spriteWidth;
 		_spriteHeight = spriteHeight;
 		_textureID = -1;
+		_layer = -1;
 	}
 
 	SpriteComponent::~SpriteComponent() {}
@@ -75,6 +76,10 @@ namespace EE {
 
 	int SpriteComponent::getActiveSpriteIndex() {
 		return _activeSpriteIndex;
+	}
+
+	int& SpriteComponent::layer() {
+		return _layer;
 	}
 
 
