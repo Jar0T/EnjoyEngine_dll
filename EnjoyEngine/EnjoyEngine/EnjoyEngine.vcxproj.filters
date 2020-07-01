@@ -150,6 +150,9 @@
     <ClInclude Include="Transform2DSystem.hpp">
       <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
     </ClInclude>
+    <ClInclude Include="AABBvsAABBCollisionSystem.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

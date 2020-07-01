@@ -168,6 +168,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider2DComponent.hpp" />
+    <ClInclude Include="AABBvsAABBCollisionSystem.hpp" />
     <ClInclude Include="CircleCollider2DComponent.hpp" />
     <ClInclude Include="Component.hpp" />
     <ClInclude Include="ComponentManager.hpp" />
