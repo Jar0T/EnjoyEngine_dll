@@ -73,6 +73,12 @@
     <Filter Include="Pliki źródłowe\Helpers">
       <UniqueIdentifier>{665f92d0-1015-4a79-bff3-008e0189a2f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\ECS\Basic systems">
+      <UniqueIdentifier>{7459a4f9-7a45-4e7c-a51a-8fbdae965421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\ECS\Basic systems">
+      <UniqueIdentifier>{8a503b38-934d-46a0-a3f9-7c5f3b2e311b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -141,6 +147,9 @@
     <ClInclude Include="AABBCollider2DComponent.hpp">
       <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
     </ClInclude>
+    <ClInclude Include="Transform2DSystem.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -196,6 +205,9 @@
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Pliki źródłowe\ECS\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform2DSystem.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
