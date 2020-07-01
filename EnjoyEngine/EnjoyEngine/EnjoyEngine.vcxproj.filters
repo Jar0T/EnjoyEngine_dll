@@ -159,6 +159,9 @@
     <ClInclude Include="AABBvsCircleCollisionSystem.hpp">
       <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
     </ClInclude>
+    <ClInclude Include="SpriteSystem.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -225,6 +228,9 @@
       <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
     </ClCompile>
     <ClCompile Include="AABBvsCircleCollisionSystem.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSystem.cpp">
       <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
     </ClCompile>
   </ItemGroup>
