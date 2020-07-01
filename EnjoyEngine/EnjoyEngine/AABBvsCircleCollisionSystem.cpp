@@ -13,7 +13,7 @@ namespace EE {
 				ab.y = a->size().y;
 			if (ab.y < 0)
 				ab.y = 0;
-			float distance = (ab - b->position()).magnitude();
+			float distance = (ab - pos2).magnitude();
 			if (distance <= b->radius()) {
 				return true;
 			}

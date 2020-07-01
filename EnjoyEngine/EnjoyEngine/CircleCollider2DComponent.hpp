@@ -11,14 +11,12 @@
 namespace EE {
 	class ENJOYENGINE_API CircleCollider2DComponent : public Component {
 	private:
-		Vector2D<float> _position;
 		float _radius;
 
 	public:
 		CircleCollider2DComponent();
 		~CircleCollider2DComponent();
 
-		Vector2D<float>& position();
 		float& radius();
 
 	};
