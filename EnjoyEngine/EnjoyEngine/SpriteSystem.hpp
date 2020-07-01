@@ -4,6 +4,7 @@
 
 #include "System.hpp"
 #include "SpriteComponent.hpp"
+#include "Transform2DComponent.hpp"
 #include "GameData.hpp"
 
 #ifdef ENJOYENGINE_EXPORTS

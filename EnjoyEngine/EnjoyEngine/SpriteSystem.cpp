@@ -14,10 +14,14 @@ namespace EE {
 	void SpriteSystem::update() {
 		std::map<int, sf::RenderTexture*> renderTextures;
 		std::vector<int> keys;
+		Vector2D<float> position;
 		for (auto& entity : EntityManager::getEntities()) {
 			SpriteComponent* sprite = ComponentManager::getComponent<SpriteComponent>(entity);
+			Transform2DComponent* transform = ComponentManager::getComponent<Transform2DComponent>(entity);
 			if (sprite) {
 				if (sprite->getStackLayer() == 0) {
+					if (transform)
+						position = transform->position();
 					int layer = sprite->layer();
 					if (!renderTextures[layer]) {
 						renderTextures[layer] = new sf::RenderTexture;
