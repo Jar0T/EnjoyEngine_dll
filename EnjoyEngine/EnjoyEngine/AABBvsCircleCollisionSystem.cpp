@@ -4,18 +4,20 @@
 namespace EE {
 	bool AABBvsCircleCollisionSystem::checkCollision(AABBCollider2DComponent* a, CircleCollider2DComponent* b) {
 		if (a && b) {
-			Vector2D<float> ab = a->position() - b->position();
-			if (ab.x > a->size().x)
-				ab.x = a->size().x;
-			if (ab.x < 0)
-				ab.x = 0;
-			if (ab.y > a->size().y)
-				ab.y = a->size().y;
-			if (ab.y < 0)
-				ab.y = 0;
-			float distance = (ab - b->position()).magnitude();
-			if (distance <= b->radius()) {
-				return true;
+			if (a->getStackLayer() == 0 && b->getStackLayer() == 0) {
+				Vector2D<float> ab = a->position() - b->position();
+				if (ab.x > a->size().x)
+					ab.x = a->size().x;
+				if (ab.x < 0)
+					ab.x = 0;
+				if (ab.y > a->size().y)
+					ab.y = a->size().y;
+				if (ab.y < 0)
+					ab.y = 0;
+				float distance = (ab - b->position()).magnitude();
+				if (distance <= b->radius()) {
+					return true;
+				}
 			}
 		}
 		return false;
