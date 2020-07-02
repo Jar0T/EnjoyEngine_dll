@@ -15,6 +15,7 @@ namespace EE {
 		Vector2D<float> _velocity;
 		Vector2D<float> _acceleration;
 
+		float _frictionCoefficient;
 		float _mass;
 		bool _grounded;
 		bool _isStatic;
@@ -26,6 +27,7 @@ namespace EE {
 		Vector2D<float>& position();
 		Vector2D<float>& velocity();
 		Vector2D<float>& acceleration();
+		float& frictionCoefficient();
 		float& mass();
 		bool& grounded();
 		bool& isStatic();
