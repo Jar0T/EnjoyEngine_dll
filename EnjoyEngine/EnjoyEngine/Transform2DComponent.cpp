@@ -30,6 +30,14 @@ namespace EE {
 		return _mass;
 	}
 
+	bool& Transform2DComponent::grounded() {
+		return _grounded;
+	}
+
+	bool& Transform2DComponent::isStatic() {
+		return _isStatic;
+	}
+
 	void Transform2DComponent::applyForce(Vector2D<float> force) {
 		if (_mass > 0.f)
 			_acceleration = force / _mass;
