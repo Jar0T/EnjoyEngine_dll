@@ -15,4 +15,12 @@ namespace EE {
 		return _size;
 	}
 
+	void AABBCollider2DComponent::setHandler(std::function<void(Transform2DComponent, Vector2D<float>)> onCollision) {
+		_onCollision = onCollision;
+	}
+
+	void AABBCollider2DComponent::callHandler(Transform2DComponent otherTransform, Vector2D<float> separationVector) {
+		_onCollision(otherTransform, separationVector);
+	}
+
 }
