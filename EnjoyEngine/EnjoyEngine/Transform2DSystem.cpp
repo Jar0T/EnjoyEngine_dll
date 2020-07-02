@@ -22,7 +22,7 @@ namespace EE {
 				if (transform->getStackLayer() == 0) {
 					if (transform->grounded()) {
 						friction = (transform->velocity() * -1.f);
-						friction.setMagnitude(9.81f * 0.3f);
+						friction.setMagnitude(9.81f * transform->frictionCoefficient());
 						transform->acceleration() += friction;
 						friction.setMagnitude(0.f);
 					}

@@ -8,6 +8,7 @@ namespace EE {
 		_velocity = Vector2D<float>{ 0.f, 0.f };
 		_acceleration = Vector2D<float>{ 0.f, 0.f };
 		_mass = 0.f;
+		_frictionCoefficient = 1.f;
 	}
 
 	Transform2DComponent::~Transform2DComponent() {
@@ -24,6 +25,10 @@ namespace EE {
 
 	Vector2D<float>& Transform2DComponent::acceleration() {
 		return _acceleration;
+	}
+
+	float& Transform2DComponent::frictionCoefficient() {
+		_frictionCoefficient;
 	}
 
 	float& Transform2DComponent::mass() {
