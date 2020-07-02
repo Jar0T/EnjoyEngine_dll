@@ -35,6 +35,7 @@ namespace EE {
 		CircleCollider2DComponent* b;
 		Transform2DComponent* t1;
 		Transform2DComponent* t2;
+		Vector2D<float> separationVector;
 		for (int i = 0; i < entities.size() - 1; i++) {
 			for (int j = i + 1; j < entities.size(); i++) {
 				t1 = ComponentManager::getComponent<Transform2DComponent>(entities[i]);
@@ -44,7 +45,9 @@ namespace EE {
 					b = ComponentManager::getComponent<CircleCollider2DComponent>(entities[j]);
 					if (a && b) {
 						if (checkCollision(a, b, t1->position(), t2->position())) {
-							std::cout << "AABB vs Circle collision detected\n";
+							separationVector = t1->position() - t2->position();
+							a->callHandler(*t2, separationVector);
+							b->callHandler(*t1, separationVector * -1);
 						}
 					}
 					else {
@@ -52,7 +55,9 @@ namespace EE {
 						b = ComponentManager::getComponent<CircleCollider2DComponent>(entities[i]);
 						if (a && b) {
 							if (checkCollision(a, b, t2->position(), t1->position())) {
-								std::cout << "Circle vs AABB collision detected\n";
+								separationVector = t2->position() - t1->position();
+								a->callHandler(*t1, separationVector);
+								b->callHandler(*t2, separationVector);
 							}
 						}
 					}

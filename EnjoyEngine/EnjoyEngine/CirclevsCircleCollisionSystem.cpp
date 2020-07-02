@@ -17,6 +17,7 @@ namespace EE {
 		CircleCollider2DComponent* c2;
 		Transform2DComponent* t1;
 		Transform2DComponent* t2;
+		Vector2D<float> separationVector;
 		for (int i = 0; i < entities.size() - 1; i++) {
 			for (int j = i + 1; j < entities.size(); i++) {
 				c1 = ComponentManager::getComponent<CircleCollider2DComponent>(entities[i]);
@@ -28,7 +29,9 @@ namespace EE {
 						float distance = (t2->position() - t1->position()).magnitude();
 						float rr = c1->radius() + c2->radius();
 						if (distance <= rr) {
-							std::cout << "Circle vs Circle collision detected\n";
+							separationVector = t1->position() - t2->position();
+							c1->callHandler(*t2, separationVector);
+							c2->callHandler(*t1, separationVector * -1);
 						}
 					}
 				}

@@ -16,6 +16,7 @@ namespace EE {
 		AABBCollider2DComponent* c2;
 		Transform2DComponent* t1;
 		Transform2DComponent* t2;
+		Vector2D<float> separationVector;
 		for (int i = 0; i < entities.size() - 1; i++) {
 			for (int j = i + 1; j < entities.size(); i++) {
 				c1 = ComponentManager::getComponent<AABBCollider2DComponent>(entities[i]);
@@ -29,7 +30,9 @@ namespace EE {
 							t1->position().x + c1->size().x > t2->position().x &&
 							t1->position().y < t2->position().y + c2->size().y &&
 							t1->position().y + c1->size().y > t2->position().y) {
-							std::cout << "AABB vs AABB collision detected\n";
+							separationVector = t1->position() - t2->position();
+							c1->callHandler(*t2, separationVector);
+							c2->callHandler(*t1, separationVector * -1);
 						}
 					}
 				}
