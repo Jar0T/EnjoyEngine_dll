@@ -13,6 +13,7 @@ namespace EE {
 	void Transform2DSystem::update() {
 		float deltaTime = Time::deltaTime();
 		Vector2D<float> friction{ 0.f, 0.f };
+		Vector2D<float> gravity{ 0.f, 9.81f };
 		for (auto& entity : EntityManager::getEntities()) {
 			Transform2DComponent* transform = ComponentManager::getComponent<Transform2DComponent>(entity);
 			if (transform) {
@@ -22,6 +23,9 @@ namespace EE {
 						friction.setMagnitude(9.81f * 0.3f);
 						transform->acceleration() += friction * deltaTime;
 						friction.setMagnitude(0.f);
+					}
+					if (transform->affectedByGravity() && !transform->grounded()) {
+						transform->acceleration() += gravity * deltaTime;
 					}
 					transform->velocity() += transform->acceleration() * deltaTime;
 					transform->position() += transform->velocity() * deltaTime;

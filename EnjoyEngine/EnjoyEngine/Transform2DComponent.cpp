@@ -38,6 +38,10 @@ namespace EE {
 		return _isStatic;
 	}
 
+	bool& Transform2DComponent::affectedByGravity() {
+		return _affectedByGravity;
+	}
+
 	void Transform2DComponent::applyForce(Vector2D<float> force) {
 		if (_mass > 0.f)
 			_acceleration = force / _mass;
