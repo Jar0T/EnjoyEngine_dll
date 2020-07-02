@@ -31,7 +31,7 @@ namespace EE {
 		/// <typeparam name="T">Derived component class</typeparam>
 		/// <param name="component">Component pointer</param>
 		template<typename T>
-		void addComponent(T* component) {
+		void addComponent(std::shared_ptr<T> component) {
 			if (!ComponentManager::hasComponent<T>(entityID))
 				ComponentManager::addComponent<T>(entityID, component);
 		}

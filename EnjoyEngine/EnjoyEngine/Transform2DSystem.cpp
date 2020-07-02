@@ -15,8 +15,9 @@ namespace EE {
 		std::vector<std::uint32_t> entities = EntityManager::getEntities();
 		Vector2D<float> friction{ 0.f, 0.f };
 		Vector2D<float> gravity{ 0.f, 9.81f };
+		std::shared_ptr<Transform2DComponent> transform;
 		for (auto& entity : entities) {
-			Transform2DComponent* transform = ComponentManager::getComponent<Transform2DComponent>(entity);
+			transform = ComponentManager::getComponent<Transform2DComponent>(entity);
 			if (transform) {
 				if (transform->getStackLayer() == 0) {
 					if (transform->grounded()) {
