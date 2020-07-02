@@ -16,6 +16,8 @@ namespace EE {
 		Vector2D<float> _acceleration;
 
 		float _mass;
+		bool _grounded;
+		bool _isStatic;
 		
 	public:
 		Transform2DComponent();
@@ -25,6 +27,8 @@ namespace EE {
 		Vector2D<float>& velocity();
 		Vector2D<float>& acceleration();
 		float& mass();
+		bool& grounded();
+		bool& isStatic();
 
 		void applyForce(Vector2D<float> force);
 

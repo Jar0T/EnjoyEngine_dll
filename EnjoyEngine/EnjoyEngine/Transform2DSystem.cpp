@@ -12,12 +12,19 @@ namespace EE {
 
 	void Transform2DSystem::update() {
 		float deltaTime = Time::deltaTime();
+		Vector2D<float> friction{ 0.f, 0.f };
 		for (auto& entity : EntityManager::getEntities()) {
 			Transform2DComponent* transform = ComponentManager::getComponent<Transform2DComponent>(entity);
 			if (transform) {
 				if (transform->getStackLayer() == 0) {
-					transform->position() += transform->velocity() * deltaTime;
+					if (transform->grounded()) {
+						friction = (transform->velocity() * -1).normalize();
+						friction.setMagnitude(9.81f * 0.3f);
+						transform->acceleration() += friction * deltaTime;
+						friction.setMagnitude(0.f);
+					}
 					transform->velocity() += transform->acceleration() * deltaTime;
+					transform->position() += transform->velocity() * deltaTime;
 					transform->acceleration().setMagnitude(0.f);
 				}
 			}
