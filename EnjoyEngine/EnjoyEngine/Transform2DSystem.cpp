@@ -23,11 +23,11 @@ namespace EE {
 					if (transform->grounded()) {
 						friction = (transform->velocity() * -1.f);
 						friction.setMagnitude(9.81f * 0.3f);
-						transform->acceleration() += friction * deltaTime;
+						transform->acceleration() += friction;
 						friction.setMagnitude(0.f);
 					}
 					if (transform->affectedByGravity() && !transform->grounded()) {
-						transform->acceleration() += gravity * deltaTime;
+						transform->acceleration() += gravity;
 					}
 					transform->velocity() += transform->acceleration() * deltaTime;
 					transform->position() += transform->velocity() * deltaTime;
