@@ -11,13 +11,13 @@ namespace EE {
 	GameData* GameData::_gameData = 0;
 
 	GameData::GameData() {
-		_window = new sf::RenderWindow();
+		_window = std::make_shared<sf::RenderWindow>();
 		_window->create(sf::VideoMode::getFullscreenModes()[0], "Window", sf::Style::Default);
 		_title = "Window";
 	}
 
 	GameData::~GameData() {
-		delete _window;
+		
 	}
 
 	sf::RenderWindow& GameData::window() {

@@ -41,8 +41,9 @@ namespace EE {
 	}
 
 	std::vector<std::uint32_t> EntityManager::getEntities() {
-		if (_entityManager == 0)
+		if (_entityManager == 0) {
 			// TO DO throw exception
+		}
 
 		return _entityManager->entities;
 	}

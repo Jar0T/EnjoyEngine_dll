@@ -14,7 +14,7 @@
 namespace EE {
 	class ENJOYENGINE_API AABBvsCircleCollisionSystem : public System {
 	private:
-		bool checkCollision(AABBCollider2DComponent* a, CircleCollider2DComponent* b, Vector2D<float> pos1, Vector2D<float> pos2);
+		bool checkCollision(std::shared_ptr<AABBCollider2DComponent> a, std::shared_ptr<CircleCollider2DComponent> b, Vector2D<float> pos1, Vector2D<float> pos2);
 	public:
 		AABBvsCircleCollisionSystem();
 		~AABBvsCircleCollisionSystem();

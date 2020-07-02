@@ -16,7 +16,7 @@ namespace EE {
 	/// </summary>
 	class ENJOYENGINE_API SystemManager {
 	private:
-		std::vector<System*> _systemsVector;
+		std::vector<std::shared_ptr<System>> _systemsVector;
 
 	public:
 		SystemManager();
@@ -33,7 +33,7 @@ namespace EE {
 		/// <typeparam name="T">Derived state class</typeparam>
 		template<typename T>
 		void registerSystem() {
-			_systemsVector.push_back(new T());
+			_systemsVector.push_back(std::make_shared<T>());
 		}
 
 	};
