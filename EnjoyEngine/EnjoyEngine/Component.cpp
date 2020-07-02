@@ -4,7 +4,7 @@
 
 namespace EE {
 	Component::Component() {
-		_stackLayer = -1;
+		_stackLayer = 0;
 	}
 
 	Component::~Component() {

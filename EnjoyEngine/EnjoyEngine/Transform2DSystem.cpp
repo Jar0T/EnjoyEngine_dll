@@ -12,9 +12,10 @@ namespace EE {
 
 	void Transform2DSystem::update() {
 		float deltaTime = Time::deltaTime();
+		std::vector<std::uint32_t> entities = EntityManager::getEntities();
 		Vector2D<float> friction{ 0.f, 0.f };
 		Vector2D<float> gravity{ 0.f, 9.81f };
-		for (auto& entity : EntityManager::getEntities()) {
+		for (auto& entity : entities) {
 			Transform2DComponent* transform = ComponentManager::getComponent<Transform2DComponent>(entity);
 			if (transform) {
 				if (transform->getStackLayer() == 0) {

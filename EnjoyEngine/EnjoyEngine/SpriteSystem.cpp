@@ -12,10 +12,11 @@ namespace EE {
 	}
 
 	void SpriteSystem::update() {
+		std::vector<std::uint32_t> entities = EntityManager::getEntities();
 		std::map<int, sf::RenderTexture*> renderTextures;
 		std::vector<int> keys;
 		Vector2D<float> position{ 0.f, 0.f };
-		for (auto& entity : EntityManager::getEntities()) {
+		for (auto& entity : entities) {
 			SpriteComponent* sprite = ComponentManager::getComponent<SpriteComponent>(entity);
 			Transform2DComponent* transform = ComponentManager::getComponent<Transform2DComponent>(entity);
 			if (sprite) {
