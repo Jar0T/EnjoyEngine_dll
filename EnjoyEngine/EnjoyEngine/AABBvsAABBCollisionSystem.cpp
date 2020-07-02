@@ -12,13 +12,13 @@ namespace EE {
 
 	void AABBvsAABBCollisionSystem::update() {
 		std::vector<std::uint32_t> entities = EntityManager::getEntities();
-		AABBCollider2DComponent* c1;
-		AABBCollider2DComponent* c2;
-		Transform2DComponent* t1;
-		Transform2DComponent* t2;
+		std::shared_ptr<AABBCollider2DComponent> c1;
+		std::shared_ptr<AABBCollider2DComponent> c2;
+		std::shared_ptr<Transform2DComponent> t1;
+		std::shared_ptr<Transform2DComponent> t2;
 		Vector2D<float> separationVector;
-		for (int i = 0; i < entities.size() - 1; i++) {
-			for (int j = i + 1; j < entities.size(); i++) {
+		for (int i = 0; i < (int)entities.size() - 1; i++) {
+			for (int j = i + 1; j < entities.size(); j++) {
 				c1 = ComponentManager::getComponent<AABBCollider2DComponent>(entities[i]);
 				c2 = ComponentManager::getComponent<AABBCollider2DComponent>(entities[j]);
 				t1 = ComponentManager::getComponent<Transform2DComponent>(entities[i]);

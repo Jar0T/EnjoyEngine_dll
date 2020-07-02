@@ -19,6 +19,7 @@ namespace EE {
 		float _mass;
 		bool _grounded;
 		bool _isStatic;
+		bool _affectedByGravity;
 		
 	public:
 		Transform2DComponent();
@@ -31,6 +32,7 @@ namespace EE {
 		float& mass();
 		bool& grounded();
 		bool& isStatic();
+		bool& affectedByGravity();
 
 		void applyForce(Vector2D<float> force);
 

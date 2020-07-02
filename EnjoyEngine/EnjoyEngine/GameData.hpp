@@ -24,7 +24,7 @@ namespace EE {
 	private:
 		static GameData* _gameData;
 
-		sf::RenderWindow* _window;
+		std::shared_ptr<sf::RenderWindow> _window;
 		std::string _title;
 
 		GameData();

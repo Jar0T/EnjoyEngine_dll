@@ -12,16 +12,22 @@ namespace EE {
 
 	void Transform2DSystem::update() {
 		float deltaTime = Time::deltaTime();
+		std::vector<std::uint32_t> entities = EntityManager::getEntities();
 		Vector2D<float> friction{ 0.f, 0.f };
-		for (auto& entity : EntityManager::getEntities()) {
-			Transform2DComponent* transform = ComponentManager::getComponent<Transform2DComponent>(entity);
+		Vector2D<float> gravity{ 0.f, 9.81f };
+		std::shared_ptr<Transform2DComponent> transform;
+		for (auto& entity : entities) {
+			transform = ComponentManager::getComponent<Transform2DComponent>(entity);
 			if (transform) {
 				if (transform->getStackLayer() == 0) {
 					if (transform->grounded()) {
 						friction = (transform->velocity() * -1.f);
 						friction.setMagnitude(9.81f * transform->frictionCoefficient());
-						transform->acceleration() += friction * deltaTime;
+						transform->acceleration() += friction;
 						friction.setMagnitude(0.f);
+					}
+					if (transform->affectedByGravity() && !transform->grounded()) {
+						transform->acceleration() += gravity;
 					}
 					transform->velocity() += transform->acceleration() * deltaTime;
 					transform->position() += transform->velocity() * deltaTime;

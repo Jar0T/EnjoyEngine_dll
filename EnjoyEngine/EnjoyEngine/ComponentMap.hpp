@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include <memory>
 #include "IComponentMap.hpp"
 
 namespace EE {
@@ -10,7 +11,7 @@ namespace EE {
 	template<typename T>
 	class ComponentMap : public IComponentMap {
 	private:
-		std::map<std::uint32_t, T*> _componentMap;
+		std::map<std::uint32_t, std::shared_ptr<T>> _componentMap;
 
 	public:
 		/// <summary>
@@ -18,7 +19,7 @@ namespace EE {
 		/// </summary>
 		/// <param name="entityID">ID of entity possessing component</param>
 		/// <returns>Component pointer</returns>
-		T* getComponent(std::uint32_t entityID) {
+		std::shared_ptr<T> getComponent(std::uint32_t entityID) {
 			return _componentMap[entityID];
 		}
 
@@ -27,7 +28,7 @@ namespace EE {
 		/// </summary>
 		/// <param name="entityID">ID of entity component should be added to</param>
 		/// <param name="component">Pointer to component</param>
-		void addComponent(std::uint32_t entityID, T* component) {
+		void addComponent(std::uint32_t entityID, std::shared_ptr<T> component) {
 			_componentMap[entityID] = component;
 		}
 
@@ -36,7 +37,7 @@ namespace EE {
 		/// </summary>
 		/// <param name="entityID">ID of entity which component should be removed</param>
 		void removeComponent(std::uint32_t entityID) override {
-			delete _componentMap[entityID];
+			//delete _componentMap[entityID];
 			_componentMap.erase(entityID);
 		}
 
@@ -44,7 +45,7 @@ namespace EE {
 		/// Getter for full map of components
 		/// </summary>
 		/// <returns>Reference to <c>std::map</c> of components</returns>
-		std::map<std::uint32_t, T*>& getMap() {
+		std::map<std::uint32_t, std::shared_ptr<T>>& getMap() {
 			return _componentMap;
 		}
 
