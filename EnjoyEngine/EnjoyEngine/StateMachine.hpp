@@ -18,7 +18,7 @@ namespace EE {
 	class ENJOYENGINE_API StateMachine {
 	private:
 		static StateMachine* _stateMachine;
-		std::stack<std::shared_ptr<State>> *_states;
+		std::stack<std::shared_ptr<State>> _states;
 
 		StateMachine();
 		StateMachine(const StateMachine&) = delete;

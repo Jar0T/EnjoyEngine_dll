@@ -54,7 +54,7 @@ namespace EE {
 		/// <param name="entityID">ID of entity that component should be added to</param>
 		/// <param name="component">Pointer to component</param>
 		template<typename T>
-		static void addComponent(std::uint32_t entityID, T* component) {
+		static void addComponent(std::uint32_t entityID, std::shared_ptr<T> component) {
 			if (_componentManager == 0)
 				_componentManager = new ComponentManager();
 
@@ -68,7 +68,7 @@ namespace EE {
 		/// <param name="entityID">ID of entity</param>
 		/// <returns>Entitie's component pointer</returns>
 		template<typename T>
-		static T* getComponent(std::uint32_t entityID) {
+		static std::shared_ptr<T> getComponent(std::uint32_t entityID) {
 			if (_componentManager == 0)
 				_componentManager = new ComponentManager();
 

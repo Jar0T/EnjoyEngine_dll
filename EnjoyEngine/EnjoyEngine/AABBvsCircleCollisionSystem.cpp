@@ -2,7 +2,7 @@
 #include "AABBvsCircleCollisionSystem.hpp"
 
 namespace EE {
-	bool AABBvsCircleCollisionSystem::checkCollision(AABBCollider2DComponent* a, CircleCollider2DComponent* b, Vector2D<float> pos1, Vector2D<float> pos2) {
+	bool AABBvsCircleCollisionSystem::checkCollision(std::shared_ptr<AABBCollider2DComponent> a, std::shared_ptr<CircleCollider2DComponent> b, Vector2D<float> pos1, Vector2D<float> pos2) {
 		if (a->getStackLayer() == 0 && b->getStackLayer() == 0) {
 			Vector2D<float> ab = pos1 - pos2;
 			if (ab.x > a->size().x)
@@ -31,10 +31,10 @@ namespace EE {
 
 	void AABBvsCircleCollisionSystem::update() {
 		std::vector<std::uint32_t> entities = EntityManager::getEntities();
-		AABBCollider2DComponent* a;
-		CircleCollider2DComponent* b;
-		Transform2DComponent* t1;
-		Transform2DComponent* t2;
+		std::shared_ptr<AABBCollider2DComponent> a;
+		std::shared_ptr<CircleCollider2DComponent> b;
+		std::shared_ptr<Transform2DComponent> t1;
+		std::shared_ptr<Transform2DComponent> t2;
 		Vector2D<float> separationVector;
 		for (int i = 0; i < (int)entities.size() - 1; i++) {
 			for (int j = i + 1; j < entities.size(); j++) {
