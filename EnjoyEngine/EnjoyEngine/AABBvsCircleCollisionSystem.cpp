@@ -36,8 +36,8 @@ namespace EE {
 		Transform2DComponent* t1;
 		Transform2DComponent* t2;
 		Vector2D<float> separationVector;
-		for (int i = 0; i < entities.size() - 1; i++) {
-			for (int j = i + 1; j < entities.size(); i++) {
+		for (int i = 0; i < (int)entities.size() - 1; i++) {
+			for (int j = i + 1; j < entities.size(); j++) {
 				t1 = ComponentManager::getComponent<Transform2DComponent>(entities[i]);
 				t2 = ComponentManager::getComponent<Transform2DComponent>(entities[j]);
 				if (t1 && t2) {
