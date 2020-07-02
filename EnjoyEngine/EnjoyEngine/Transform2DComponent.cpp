@@ -28,7 +28,7 @@ namespace EE {
 	}
 
 	float& Transform2DComponent::frictionCoefficient() {
-		_frictionCoefficient;
+		return _frictionCoefficient;
 	}
 
 	float& Transform2DComponent::mass() {
