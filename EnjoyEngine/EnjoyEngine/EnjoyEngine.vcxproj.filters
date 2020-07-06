@@ -177,6 +177,9 @@
     <ClInclude Include="SoundManager.hpp">
       <Filter>Pliki nagłówkowe\Asset managers</Filter>
     </ClInclude>
+    <ClInclude Include="SoundListenerComponent.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -255,6 +258,9 @@
       <Filter>Pliki źródłowe\Asset managers</Filter>
     </ClCompile>
     <ClCompile Include="SoundPlayerComponent.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundListenerComponent.cpp">
       <Filter>Pliki źródłowe\ECS\Basic components</Filter>
     </ClCompile>
   </ItemGroup>
