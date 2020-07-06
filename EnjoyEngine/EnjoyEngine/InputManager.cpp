@@ -61,7 +61,8 @@ namespace EE {
 		if (sf::Joystick::isConnected(joystick.joystick)) {
 			if (sf::Joystick::hasAxis(joystick.joystick, joystick.axis)) {
 				float axis = sf::Joystick::getAxisPosition(joystick.joystick, joystick.axis);
-				return (std::abs(axis) < 0.01 ? 0 : axis);
+				axis = (std::abs(axis) < 0.01 ? 0 : axis);
+				return axis / 100.f;
 			}
 		}
 		return 0.f;
