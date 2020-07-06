@@ -79,6 +79,12 @@
     <Filter Include="Pliki źródłowe\ECS\Basic systems">
       <UniqueIdentifier>{8a503b38-934d-46a0-a3f9-7c5f3b2e311b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Input manager">
+      <UniqueIdentifier>{7e8346d0-191c-415d-91a2-2eaa9f8e0381}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Input manager">
+      <UniqueIdentifier>{5b4db304-a33c-4420-9cf4-bf8ff9d389d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -162,6 +168,9 @@
     <ClInclude Include="SpriteSystem.hpp">
       <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
     </ClInclude>
+    <ClInclude Include="InputManager.hpp">
+      <Filter>Pliki nagłówkowe\Input manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -232,6 +241,9 @@
     </ClCompile>
     <ClCompile Include="SpriteSystem.cpp">
       <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Pliki źródłowe\Input manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
