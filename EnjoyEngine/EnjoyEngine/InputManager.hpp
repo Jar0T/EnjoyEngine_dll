@@ -5,6 +5,7 @@
 #include "SFML/Window.hpp"
 #include "GameData.hpp"
 #include "Vector2D.hpp"
+#include "Game.hpp"
 
 #ifdef ENJOYENGINE_EXPORTS
 #define ENJOYENGINE_API __declspec(dllexport)
@@ -42,6 +43,10 @@ namespace EE {
 		InputManager();
 		InputManager(const InputManager&) = delete;
 		InputManager& operator=(const InputManager&) = delete;
+
+		static void updateButtonsStates();
+
+		friend int Game::Play();
 
 	public:
 		~InputManager();
