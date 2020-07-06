@@ -58,9 +58,12 @@ namespace EE {
 
 		Joystick joystick = _inputManager->_joystick[axisName];
 
-		if(sf::Joystick::isConnected(joystick.joystick))
-			if(sf::Joystick::hasAxis(joystick.joystick, joystick.axis))
-				return sf::Joystick::getAxisPosition(joystick.joystick, joystick.axis);
+		if (sf::Joystick::isConnected(joystick.joystick)) {
+			if (sf::Joystick::hasAxis(joystick.joystick, joystick.axis)) {
+				float axis = sf::Joystick::getAxisPosition(joystick.joystick, joystick.axis);
+				return (std::abs(axis) < 0.01 ? 0 : axis);
+			}
+		}
 		return 0.f;
 	}
 
