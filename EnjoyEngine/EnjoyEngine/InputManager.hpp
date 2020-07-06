@@ -36,9 +36,9 @@ namespace EE {
 		std::map<std::string, Keyboard> _keyboard;
 		std::map<std::string, Mouse> _mouse;
 
-		std::map<unsigned int, std::map<unsigned int, bool[2]>> _joystickButtonsStates;
-		std::map<sf::Keyboard::Key, bool[2]> _keyboardKeysStates;
-		std::map<sf::Mouse::Button, bool[2]> _mouseButtonsStates;
+		std::map<unsigned int, std::map<unsigned int, std::pair<bool, bool>>> _joystickButtonsStates;
+		std::map<sf::Keyboard::Key, std::pair<bool, bool>> _keyboardKeysStates;
+		std::map<sf::Mouse::Button, std::pair<bool, bool>> _mouseButtonsStates;
 
 		InputManager();
 		InputManager(const InputManager&) = delete;
