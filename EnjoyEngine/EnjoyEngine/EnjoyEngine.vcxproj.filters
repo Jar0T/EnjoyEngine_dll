@@ -171,6 +171,12 @@
     <ClInclude Include="InputManager.hpp">
       <Filter>Pliki nagłówkowe\Input manager</Filter>
     </ClInclude>
+    <ClInclude Include="SoundPlayerComponent.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.hpp">
+      <Filter>Pliki nagłówkowe\Asset managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -244,6 +250,12 @@
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Pliki źródłowe\Input manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Pliki źródłowe\Asset managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPlayerComponent.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
