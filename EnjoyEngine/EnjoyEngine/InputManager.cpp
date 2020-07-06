@@ -194,7 +194,7 @@ namespace EE {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_joystick[axisName] = Joystick{ joystick, -1, axis };
+		_inputManager->_joystick[axisName] = Joystick{ joystick, 0, axis };
 	}
 
 	void InputManager::setButton(std::string buttonName, unsigned int button, unsigned int joystick) {
