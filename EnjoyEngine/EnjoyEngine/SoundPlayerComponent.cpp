@@ -2,6 +2,8 @@
 
 #include "SoundPlayerComponent.hpp"
 
+#define SOUND_DISTANCE_SCALING 50.f;
+
 namespace EE {
 	SoundPlayerComponent::SoundPlayerComponent() {}
 
@@ -33,6 +35,7 @@ namespace EE {
 
 	void SoundPlayerComponent::setSoundPosition(Vector2D<float> position) {
 		std::map<std::string, std::unique_ptr<sf::Sound>>::iterator sound;
+		position /= SOUND_DISTANCE_SCALING;
 		for (sound = _sound.begin(); sound != _sound.end(); sound++) {
 			sound->second->setPosition(position.x, position.y, 0.f);
 		}
