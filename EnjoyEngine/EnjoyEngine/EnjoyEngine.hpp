@@ -36,6 +36,7 @@
 
 #pragma region managers
 #include "TextureManager.hpp"
+#include "InputManager.hpp"
 #pragma endregion
 
 #pragma region state_machine
