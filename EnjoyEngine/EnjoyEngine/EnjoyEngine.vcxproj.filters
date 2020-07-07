@@ -171,6 +171,18 @@
     <ClInclude Include="InputManager.hpp">
       <Filter>Pliki nagłówkowe\Input manager</Filter>
     </ClInclude>
+    <ClInclude Include="SoundPlayerComponent.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.hpp">
+      <Filter>Pliki nagłówkowe\Asset managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundListenerComponent.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundSystem.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -244,6 +256,18 @@
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Pliki źródłowe\Input manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Pliki źródłowe\Asset managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPlayerComponent.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundListenerComponent.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundSystem.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
