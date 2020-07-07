@@ -180,6 +180,9 @@
     <ClInclude Include="SoundListenerComponent.hpp">
       <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
     </ClInclude>
+    <ClInclude Include="SoundSystem.hpp">
+      <Filter>Pliki nagłówkowe\ECS\Basic systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -262,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="SoundListenerComponent.cpp">
       <Filter>Pliki źródłowe\ECS\Basic components</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundSystem.cpp">
+      <Filter>Pliki źródłowe\ECS\Basic systems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -187,6 +187,7 @@
     <ClInclude Include="SoundListenerComponent.hpp" />
     <ClInclude Include="SoundManager.hpp" />
     <ClInclude Include="SoundPlayerComponent.hpp" />
+    <ClInclude Include="SoundSystem.hpp" />
     <ClInclude Include="SpriteComponent.hpp" />
     <ClInclude Include="SpriteSystem.hpp" />
     <ClInclude Include="State.hpp" />
@@ -222,6 +223,7 @@
     <ClCompile Include="SoundListenerComponent.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SoundPlayerComponent.cpp" />
+    <ClCompile Include="SoundSystem.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="SpriteSystem.cpp" />
     <ClCompile Include="State.cpp" />
