@@ -15,6 +15,10 @@ namespace EE {
 		return handleToRawType(entityHandle)->first;
 	}
 
+	void ECS::removeComponentInternal(std::uint32_t componentID, std::uint32_t index) {
+
+	}
+
 	ECS::ECS() {}
 
 	ECS::~ECS() {
@@ -55,6 +59,18 @@ namespace EE {
 		_entities.push_back(newEntity);
 
 		return handle;
+	}
+
+	void ECS::destroyEntity(EntityHandle entityHandle) {
+		std::vector<std::pair<std::uint32_t, std::uint32_t>>& entity = handleToEntity(entityHandle);
+		for (std::uint32_t i = 0; i < entity.size(); i++) {
+			removeComponentInternal(entity[i].first, entity[i].second);
+		}
+		std::uint32_t dstIndex = handleToEntityIndex(entityHandle);
+		std::uint32_t srcIndex = _entities.size() - 1;
+		delete _entities[dstIndex];
+		_entities[dstIndex] = _entities[srcIndex];
+		_entities.pop_back();
 	}
 
 	inline void ECS::addSystem(BaseECSSystem& system) {

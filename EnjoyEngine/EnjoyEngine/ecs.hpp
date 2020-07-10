@@ -22,6 +22,8 @@ namespace EE {
 		inline std::vector<std::pair<std::uint32_t, std::uint32_t>>& handleToEntity(EntityHandle entityHandle);
 		inline std::uint32_t handleToEntityIndex(EntityHandle entityHandle);
 
+		void removeComponentInternal(std::uint32_t componentID, std::uint32_t index);
+
 	public:
 		ECS();
 		~ECS();
