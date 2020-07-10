@@ -84,7 +84,23 @@ namespace EE {
 		std::vector<uint8_t>& componetns = _components[componentTypes[0]];
 		for (size_t i = 0; i < componetns.size(); i += typeSize) {
 			componentsVector[0] = (BaseECSComponent*)&componetns[i];
-			_systems[index]->updateComponents(&component);
+			std::vector<std::pair<std::uint32_t, std::uint32_t>>& entityComponents = handleToEntity(componentsVector[0]->entity);
+
+			bool isValid = true;
+			for (size_t j = 0; j < componentTypes.size(); j++) {
+				if (j == 0) {
+					continue;
+				}
+				componentsVector[j] = getComponetnInternal(entityComponents, componentTypes[j]);
+				if (componentsVector[j] == nullptr) {
+					isValid = false;
+					break;
+				}
+			}
+
+			if (isValid) {
+				_systems[index]->updateComponents(&componentsVector[0]);
+			}
 		}
 	}
 
