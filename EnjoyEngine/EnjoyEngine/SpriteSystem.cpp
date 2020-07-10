@@ -16,8 +16,8 @@ namespace EE {
 		std::map<int, std::shared_ptr<sf::RenderTexture>> renderTextures;
 		std::vector<int> keys;
 		Vector2D<float> position{ 0.f, 0.f };
-		std::shared_ptr<SpriteComponent> sprite;
-		std::shared_ptr<Transform2DComponent> transform;
+		SpriteComponent* sprite;
+		Transform2DComponent* transform;
 		for (auto& entity : entities) {
 			sprite = ComponentManager::getComponent<SpriteComponent>(entity);
 			transform = ComponentManager::getComponent<Transform2DComponent>(entity);

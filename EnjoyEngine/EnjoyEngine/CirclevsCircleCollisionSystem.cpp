@@ -13,10 +13,10 @@ namespace EE {
 
 	void CirclevsCircleCollisionSystem::update() {
 		std::vector<std::uint32_t> entities = EntityManager::getEntities();
-		std::shared_ptr<CircleCollider2DComponent> c1;
-		std::shared_ptr<CircleCollider2DComponent> c2;
-		std::shared_ptr<Transform2DComponent> t1;
-		std::shared_ptr<Transform2DComponent> t2;
+		CircleCollider2DComponent* c1;
+		CircleCollider2DComponent* c2;
+		Transform2DComponent* t1;
+		Transform2DComponent* t2;
 		Vector2D<float> separationVector;
 		for (int i = 0; i < (int)entities.size() - 1; i++) {
 			for (int j = i + 1; j < entities.size(); j++) {
