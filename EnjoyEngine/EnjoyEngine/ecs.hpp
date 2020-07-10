@@ -22,7 +22,12 @@ namespace EE {
 		inline std::vector<std::pair<std::uint32_t, std::uint32_t>>& handleToEntity(EntityHandle entityHandle);
 		inline std::uint32_t handleToEntityIndex(EntityHandle entityHandle);
 
-		void removeComponentInternal(std::uint32_t componentID, std::uint32_t index);
+		void deleteComponent(std::uint32_t componentID, std::uint32_t index);
+		bool removeComponentInternal(EntityHandle entityHandle, std::uint32_t componentID);
+		void addComponentInternal(EntityHandle handle, std::vector<std::pair<std::uint32_t, std::uint32_t>>& entity, std::uint32_t id, BaseECSComponent* component);
+		BaseECSComponent* getComponetnInternal(std::vector<std::pair<std::uint32_t, std::uint32_t>>& entityComponents, std::uint32_t id);
+
+		void updateSystemWithMultipleComponents(uint32_t index, const std::vector<std::uint32_t>& componentTypes, std::vector<BaseECSComponent*>& componentsVector);
 
 	public:
 		ECS();
@@ -36,16 +41,32 @@ namespace EE {
 
 		// Component methods
 		template<class Component>
-		void addComponent(EntityHandle entityHandle, Component* component);
+		inline void addComponent(EntityHandle entityHandle, Component* component);
 		template<class Component>
 		void removeComponent(EntityHandle entityHandle);
 		template<class Component>
-		void getComponent(EntityHandle entityHandle);
+		Component* getComponent(EntityHandle entityHandle);
 
 		// System methods
 		inline void addSystem(BaseECSSystem& system);
 		void updateSystems();
-		void removeSystem(BaseECSSystem& system);
+		bool removeSystem(BaseECSSystem& system);
 
 	};
+	
+	template<class Component>
+	inline void ECS::addComponent(EntityHandle entityHandle, Component* component) {
+		addComponentInternal(entityHandle, handleToEntity(entityHandle), Component::ID, component);
+	}
+
+	template<class Component>
+	inline void ECS::removeComponent(EntityHandle entityHandle) {
+		removeComponentInternal(entityHandle, Component::ID);
+	}
+
+	template<class Component>
+	inline Component* ECS::getComponent(EntityHandle entityHandle) {
+		/*return (Component*)*/getComponetnInternal(handleToEntity(entityHandle), Component::ID);
+	}
+
 }
