@@ -23,6 +23,7 @@ namespace EE {
 		inline static ECSComponentCreateFunction getTypeCreateFunction(std::uint32_t id);
 		inline static ECSComponentFreeFunction getTypeFreeFunction(std::uint32_t id);
 		inline static size_t getTypeSize(std::uint32_t id);
+		inline static bool isTypeValid(std::uint32_t id);
 	private:
 		static std::vector<std::tuple< ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>> componentTypes;
 	};

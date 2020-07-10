@@ -27,4 +27,8 @@ namespace EE {
 		return std::get<2>(componentTypes[id]);
 	}
 
+	inline bool BaseECSComponent::isTypeValid(std::uint32_t id) {
+		return id < componentTypes.size();
+	}
+
 }

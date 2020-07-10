@@ -39,6 +39,10 @@ namespace EE {
 
 		for (size_t i = 0; i < noComponents; i++) {
 			// Check if component's ID is valid
+			if (!BaseECSComponent::isTypeValid(componentIDs[i])) {
+				delete newEntity;
+				return nullptr;
+			}
 
 			ECSComponentCreateFunction createfn = BaseECSComponent::getTypeCreateFunction(componentIDs[i]);
 			std::pair<std::uint32_t, std::uint32_t> newPair;
