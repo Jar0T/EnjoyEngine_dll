@@ -25,9 +25,10 @@ namespace EE {
 		void deleteComponent(std::uint32_t componentID, std::uint32_t index);
 		bool removeComponentInternal(EntityHandle entityHandle, std::uint32_t componentID);
 		void addComponentInternal(EntityHandle handle, std::vector<std::pair<std::uint32_t, std::uint32_t>>& entity, std::uint32_t id, BaseECSComponent* component);
-		BaseECSComponent* getComponetnInternal(std::vector<std::pair<std::uint32_t, std::uint32_t>>& entityComponents, std::uint32_t id);
+		BaseECSComponent* getComponetnInternal(std::vector<std::pair<std::uint32_t, std::uint32_t>>& entityComponents, std::vector<uint8_t>& components, std::uint32_t id);
 
-		void updateSystemWithMultipleComponents(uint32_t index, const std::vector<std::uint32_t>& componentTypes, std::vector<BaseECSComponent*>& componentsVector);
+		void updateSystemWithMultipleComponents(uint32_t index, const std::vector<std::uint32_t>& componentTypes, std::vector<BaseECSComponent*>& baseComponentsVector, std::vector<std::vector<uint8_t>*>& componentsVector);
+		size_t findLeastCommonComponent(const std::vector<uint32_t>& componentTypes);
 
 	public:
 		ECS();
@@ -66,7 +67,7 @@ namespace EE {
 
 	template<class Component>
 	inline Component* ECS::getComponent(EntityHandle entityHandle) {
-		/*return (Component*)*/getComponetnInternal(handleToEntity(entityHandle), Component::ID);
+		/*return (Component*)*/getComponetnInternal(handleToEntity(entityHandle), _components[Component::ID], Component::ID);
 	}
 
 }

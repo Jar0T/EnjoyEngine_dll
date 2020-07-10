@@ -68,7 +68,7 @@ namespace EE {
 		entity.push_back(newPair);
 	}
 
-	BaseECSComponent* ECS::getComponetnInternal(std::vector<std::pair<std::uint32_t, std::uint32_t>>& entityComponents, std::uint32_t id) {
+	BaseECSComponent* ECS::getComponetnInternal(std::vector<std::pair<std::uint32_t, std::uint32_t>>& entityComponents, std::vector<uint8_t>& components, std::uint32_t id) {
 		for (std::uint32_t i = 0; i < entityComponents.size(); i++) {
 			if (id == entityComponents[i].first) {
 				return (BaseECSComponent*)&_components[id][entityComponents[i].second];
@@ -77,31 +77,53 @@ namespace EE {
 		return nullptr;
 	}
 
-	void ECS::updateSystemWithMultipleComponents(uint32_t index, const std::vector<std::uint32_t>& componentTypes, std::vector<BaseECSComponent*>& componentsVector) {
+	void ECS::updateSystemWithMultipleComponents(uint32_t index, const std::vector<std::uint32_t>& componentTypes, std::vector<BaseECSComponent*>& baseComponentsVector, std::vector<std::vector<uint8_t>*>& componentsVector) {
+		baseComponentsVector.resize(std::max(baseComponentsVector.size(), componentTypes.size()));
 		componentsVector.resize(std::max(componentsVector.size(), componentTypes.size()));
 
-		size_t typeSize = BaseECSComponent::getTypeSize(componentTypes[0]);
-		std::vector<uint8_t>& componetns = _components[componentTypes[0]];
-		for (size_t i = 0; i < componetns.size(); i += typeSize) {
-			componentsVector[0] = (BaseECSComponent*)&componetns[i];
-			std::vector<std::pair<std::uint32_t, std::uint32_t>>& entityComponents = handleToEntity(componentsVector[0]->entity);
+		for (size_t i = 0; i < componentTypes.size(); i++) {
+			componentsVector[i] = &_components[componentTypes[i]];
+		}
+
+		size_t minSizeIndex = findLeastCommonComponent(componentTypes);
+
+		size_t typeSize = BaseECSComponent::getTypeSize(componentTypes[minSizeIndex]);
+		std::vector<uint8_t>& components = *componentsVector[minSizeIndex];
+		for (size_t i = 0; i < components.size(); i += typeSize) {
+			baseComponentsVector[minSizeIndex] = (BaseECSComponent*)&components[i];
+			std::vector<std::pair<std::uint32_t, std::uint32_t>>& entityComponents = handleToEntity(baseComponentsVector[minSizeIndex]->entity);
 
 			bool isValid = true;
 			for (size_t j = 0; j < componentTypes.size(); j++) {
-				if (j == 0) {
+				if (j == minSizeIndex) {
 					continue;
 				}
-				componentsVector[j] = getComponetnInternal(entityComponents, componentTypes[j]);
-				if (componentsVector[j] == nullptr) {
+				baseComponentsVector[j] = getComponetnInternal(entityComponents, *componentsVector[j], componentTypes[j]);
+				if (baseComponentsVector[j] == nullptr) {
 					isValid = false;
 					break;
 				}
 			}
 
 			if (isValid) {
-				_systems[index]->updateComponents(&componentsVector[0]);
+				_systems[index]->updateComponents(&baseComponentsVector[0]);
 			}
 		}
+	}
+
+	size_t ECS::findLeastCommonComponent(const std::vector<uint32_t>& componentTypes) {
+		size_t minSize = _components[componentTypes[0]].size() / BaseECSComponent::getTypeSize(componentTypes[0]);
+		size_t minIndex = 0;
+
+		for (size_t i = 1; i < componentTypes.size(); i++) {
+			size_t typeSize = BaseECSComponent::getTypeSize(componentTypes[i]);
+			size_t size = _components[componentTypes[i]].size() / typeSize;
+			if (size < minSize) {
+				minSize = size;
+			}
+		}
+
+		return minIndex;
 	}
 
 	ECS::ECS() {}
@@ -159,7 +181,8 @@ namespace EE {
 	}
 
 	void ECS::updateSystems() {
-		std::vector<BaseECSComponent*> componentsVector;
+		std::vector<BaseECSComponent*> baseComponentsVector;
+		std::vector<std::vector<uint8_t>*> componentsVector;
 		for (size_t i = 0; i < _systems.size(); i++) {
 			const std::vector<std::uint32_t>& componentTypes = _systems[i]->getComponentTypes();
 			if (componentTypes.size() == 1) {
@@ -171,7 +194,7 @@ namespace EE {
 				}
 			}
 			else {
-				updateSystemWithMultipleComponents(i, componentTypes, componentsVector);
+				updateSystemWithMultipleComponents(i, componentTypes, baseComponentsVector, componentsVector);
 			}
 		}
 	}
