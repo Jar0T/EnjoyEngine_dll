@@ -25,11 +25,11 @@ namespace EE {
 		inline static size_t getTypeSize(std::uint32_t id);
 		inline static bool isTypeValid(std::uint32_t id);
 	private:
-		static std::vector<std::tuple< ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>> componentTypes;
+		static std::vector<std::tuple< ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>>* componentTypes;
 	};
 
 	template<typename Component>
-	struct ENJOYENGINE_API ECSComponent : public BaseECSComponent {
+	struct ECSComponent : public BaseECSComponent {
 		static const ECSComponentCreateFunction CREATE_FUNCTION;
 		static const ECSComponentFreeFunction FREE_FUNCTION;
 		static const std::uint32_t ID;
@@ -37,7 +37,7 @@ namespace EE {
 	};
 
 	template<typename Component>
-	ENJOYENGINE_API std::uint32_t ECSComponentCreate(std::vector<std::uint8_t>& memory, EntityHandle entity, BaseECSComponent* comp) {
+	std::uint32_t ECSComponentCreate(std::vector<std::uint8_t>& memory, EntityHandle entity, BaseECSComponent* comp) {
 		size_t index = memory.size();
 		memory.resize(index + Component::size);
 		Component* component = new(&memory[index]) Component(*(Component*)comp);
@@ -46,7 +46,7 @@ namespace EE {
 	}
 
 	template<typename Component>
-	ENJOYENGINE_API void ECSComponentFree(BaseECSComponent* comp) {
+	void ECSComponentFree(BaseECSComponent* comp) {
 		Component* component = (Component*)comp;
 		component->~Component();
 	}

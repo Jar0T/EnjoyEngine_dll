@@ -161,19 +161,10 @@
     <ClCompile Include="GameData.cpp">
       <Filter>Pliki źródłowe\Game data</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteComponent.cpp">
-      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
-    </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Pliki źródłowe\Asset managers</Filter>
     </ClCompile>
     <ClCompile Include="Transform2DComponent.cpp">
-      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleCollider2DComponent.cpp">
-      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
-    </ClCompile>
-    <ClCompile Include="AABBCollider2DComponent.cpp">
       <Filter>Pliki źródłowe\ECS\Basic components</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
@@ -181,12 +172,6 @@
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>Pliki źródłowe\Asset managers</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundPlayerComponent.cpp">
-      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundListenerComponent.cpp">
-      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
     </ClCompile>
     <ClCompile Include="ECSComponent.cpp">
       <Filter>Pliki źródłowe\ECS\Component</Filter>

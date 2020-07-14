@@ -11,15 +11,28 @@
 
 namespace EE {
 	class ENJOYENGINE_API BaseECSSystem {
+	public:
+		enum class Flags : uint32_t {
+			NO_FLAG,
+			OPTIONAL_COMPONENT
+		};
+
 	private:
 		std::vector<std::uint32_t> _componentTypes;
+		std::vector<std::uint32_t> _componetnFlags;
+
+	protected:
+		void addComponentType(uint32_t componetnType, Flags componentFlag = Flags::NO_FLAG);
 
 	public:
-		BaseECSSystem(const std::vector<std::uint32_t>& componentTypes);
+		BaseECSSystem();
 
 		virtual void updateComponents(BaseECSComponent** components);
 
 		const std::vector<std::uint32_t>& getComponentTypes();
+		const std::vector<uint32_t>& getComponentFlags();
+
+		bool isValid();
 
 	};
 }
