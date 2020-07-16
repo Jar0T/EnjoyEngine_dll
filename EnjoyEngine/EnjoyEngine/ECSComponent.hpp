@@ -17,13 +17,33 @@ namespace EE {
 
 	struct ENJOYENGINE_API BaseECSComponent {
 	public:
-		static std::uint32_t registerComponentType(ECSComponentCreateFunction createfn, ECSComponentFreeFunction freefn, size_t size);
+		int stackLayer = 0;
+		static std::uint32_t registerComponentType(ECSComponentCreateFunction createfn, ECSComponentFreeFunction freefn, size_t size) {
+			if (componentTypes == nullptr) {
+				componentTypes = new std::vector<std::tuple< ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>>;
+			}
+			std::uint32_t componentTypeID = componentTypes->size();
+			componentTypes->push_back(
+				std::tuple< ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>(
+					createfn, freefn, size
+					)
+			);
+			return componentTypeID;
+		}
 		EntityHandle entity = nullptr;
 
-		inline static ECSComponentCreateFunction getTypeCreateFunction(std::uint32_t id);
-		inline static ECSComponentFreeFunction getTypeFreeFunction(std::uint32_t id);
-		inline static size_t getTypeSize(std::uint32_t id);
-		inline static bool isTypeValid(std::uint32_t id);
+		inline static ECSComponentCreateFunction getTypeCreateFunction(std::uint32_t id) {
+			return std::get<0>((*componentTypes)[id]);
+		}
+		inline static ECSComponentFreeFunction getTypeFreeFunction(std::uint32_t id) {
+			return std::get<1>((*componentTypes)[id]);
+		}
+		inline static size_t getTypeSize(std::uint32_t id) {
+			return std::get<2>((*componentTypes)[id]);
+		}
+		inline static bool isTypeValid(std::uint32_t id) {
+			return id < componentTypes->size();
+		}
 	private:
 		static std::vector<std::tuple< ECSComponentCreateFunction, ECSComponentFreeFunction, size_t>>* componentTypes;
 	};
@@ -64,10 +84,4 @@ namespace EE {
 
 	template<typename Component>
 	const ECSComponentFreeFunction ECSComponent<Component>::FREE_FUNCTION(ECSComponentFree<Component>);
-
-	// Example of use
-	/*struct TransformComponent : public ECSComponent<TransformComponent> {
-		float x;
-		float y;
-	};*/
 }

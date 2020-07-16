@@ -37,12 +37,6 @@
     <Filter Include="Pliki źródłowe\ECS">
       <UniqueIdentifier>{511aa304-4ed6-4928-9fe7-05f0ab29fb84}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\ECS\Basic components">
-      <UniqueIdentifier>{c79829a3-7f2a-4f89-8cd5-47f593401ebd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Pliki źródłowe\ECS\Basic components">
-      <UniqueIdentifier>{f71d73f1-662e-4661-b29c-f7f562c190bf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Pliki nagłówkowe\Asset managers">
       <UniqueIdentifier>{ebef82bf-4672-46ab-9a53-b1ab61680a8a}</UniqueIdentifier>
     </Filter>
@@ -99,35 +93,17 @@
     <ClInclude Include="GameData.hpp">
       <Filter>Pliki nagłówkowe\Game data</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteComponent.hpp">
-      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
-    </ClInclude>
     <ClInclude Include="TextureManager.hpp">
       <Filter>Pliki nagłówkowe\Asset managers</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.hpp">
       <Filter>Pliki nagłówkowe\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="Transform2DComponent.hpp">
-      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollider2DComponent.hpp">
-      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
-    </ClInclude>
-    <ClInclude Include="AABBCollider2DComponent.hpp">
-      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.hpp">
       <Filter>Pliki nagłówkowe\Input manager</Filter>
     </ClInclude>
-    <ClInclude Include="SoundPlayerComponent.hpp">
-      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
-    </ClInclude>
     <ClInclude Include="SoundManager.hpp">
       <Filter>Pliki nagłówkowe\Asset managers</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundListenerComponent.hpp">
-      <Filter>Pliki nagłówkowe\ECS\Basic components</Filter>
     </ClInclude>
     <ClInclude Include="ECSComponent.hpp">
       <Filter>Pliki nagłówkowe\ECS\Component</Filter>
@@ -164,23 +140,17 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Pliki źródłowe\Asset managers</Filter>
     </ClCompile>
-    <ClCompile Include="Transform2DComponent.cpp">
-      <Filter>Pliki źródłowe\ECS\Basic components</Filter>
-    </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Pliki źródłowe\Input manager</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>Pliki źródłowe\Asset managers</Filter>
     </ClCompile>
-    <ClCompile Include="ECSComponent.cpp">
-      <Filter>Pliki źródłowe\ECS\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="ECSSystem.cpp">
-      <Filter>Pliki źródłowe\ECS\System</Filter>
-    </ClCompile>
     <ClCompile Include="ecs.cpp">
       <Filter>Pliki źródłowe\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="ECSComponent.cpp">
+      <Filter>Pliki źródłowe\ECS\Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
