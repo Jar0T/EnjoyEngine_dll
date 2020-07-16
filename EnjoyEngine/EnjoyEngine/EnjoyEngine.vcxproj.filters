@@ -152,5 +152,8 @@
     <ClCompile Include="ECSComponent.cpp">
       <Filter>Pliki źródłowe\ECS\Component</Filter>
     </ClCompile>
+    <ClCompile Include="ECSSystem.cpp">
+      <Filter>Pliki źródłowe\ECS\System</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

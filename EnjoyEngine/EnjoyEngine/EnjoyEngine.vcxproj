@@ -187,6 +187,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="ecs.cpp" />
     <ClCompile Include="ECSComponent.cpp" />
+    <ClCompile Include="ECSSystem.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameData.cpp" />
     <ClCompile Include="InputManager.cpp" />
