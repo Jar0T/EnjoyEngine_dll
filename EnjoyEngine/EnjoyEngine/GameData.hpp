@@ -9,6 +9,7 @@
 
 // My headers
 #include "SFML/Graphics.hpp"
+#include "ecs.hpp"
 
 #ifdef ENJOYENGINE_EXPORTS
 #define ENJOYENGINE_API __declspec(dllexport)
@@ -26,6 +27,7 @@ namespace EE {
 
 		std::shared_ptr<sf::RenderWindow> _window;
 		std::string _title;
+		std::shared_ptr<ECS> _ecs;
 
 		GameData();
 		GameData(int width, int height);
@@ -61,6 +63,8 @@ namespace EE {
 		/// Method called from event handler when window is resized
 		/// </summary>
 		static void onWindowResize();
+
+		static ECS& ecs();
 
 	};
 }

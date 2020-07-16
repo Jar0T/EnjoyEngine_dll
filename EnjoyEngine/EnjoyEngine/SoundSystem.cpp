@@ -9,9 +9,9 @@ namespace EE {
 
 	void SoundSystem::update() {
 		std::vector<std::uint32_t> entities = EntityManager::getEntities();
-		std::shared_ptr<Transform2DComponent> t;
-		std::shared_ptr<SoundPlayerComponent> sp;
-		std::shared_ptr<SoundListenerComponent> sl;
+		Transform2DComponent* t;
+		SoundPlayerComponent* sp;
+		SoundListenerComponent* sl;
 		for (auto& entity : entities) {
 			t = ComponentManager::getComponent<Transform2DComponent>(entity);
 			if (t) {

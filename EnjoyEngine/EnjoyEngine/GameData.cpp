@@ -14,6 +14,8 @@ namespace EE {
 		_window = std::make_shared<sf::RenderWindow>();
 		_window->create(sf::VideoMode::getFullscreenModes()[0], "Window", sf::Style::Default);
 		_title = "Window";
+
+		_ecs = std::make_shared<ECS>();
 	}
 
 	GameData::~GameData() {
@@ -54,12 +56,18 @@ namespace EE {
 			_gameData->_window->create(sf::VideoMode::getFullscreenModes()[0], _gameData->_title, sf::Style::Default);
 	}
 
-	void GameData::onWindowResize()
-	{
+	void GameData::onWindowResize() {
 		if (_gameData == 0)
 			_gameData = new GameData();
 
 		sf::Vector2u size = _gameData->_window->getSize();
 		_gameData->_window->setView(sf::View(sf::FloatRect(0.f, 0.f, (float)size.x, (float)size.y)));
+	}
+
+	ECS& GameData::ecs() {
+		if (_gameData == 0)
+			_gameData = new GameData();
+
+		return *_gameData->_ecs;
 	}
 }
