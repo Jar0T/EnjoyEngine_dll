@@ -3,8 +3,14 @@
 #include "ECSComponent.hpp"
 #include "Time.hpp"
 
+#ifdef ENJOYENGINE_EXPORTS
+#define ENJOYENGINE_API __declspec(dllexport)
+#else
+#define ENJOYENGINE_API __declspec(dllimport)
+#endif
+
 namespace EE {
-	class BaseECSSystem {
+	class ENJOYENGINE_API BaseECSSystem {
 	public:
 		enum class Flags : uint32_t {
 			NO_FLAG,
