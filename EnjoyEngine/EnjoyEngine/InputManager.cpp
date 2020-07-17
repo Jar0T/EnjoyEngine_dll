@@ -488,130 +488,202 @@ namespace EE {
 		_inputManager->_mouse[mouseButtonName] = Mouse{ button };
 	}
 
-	void InputManager::subscribeToCloseEvent(std::function < void() > subscriber) {
+	std::shared_ptr< std::function < void() > > InputManager::subscribeToCloseEvent(std::function < void() > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_closedEventSubscribers.push_back(std::make_shared< std::function < void() > >(subscriber));
+		std::shared_ptr< std::function < void() > > f = std::make_shared< std::function < void() > >(subscriber);
+
+		_inputManager->_closedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToResizeEvent(std::function < void(unsigned int, unsigned int) > subscriber) {
+	std::shared_ptr< std::function < void(unsigned int, unsigned int) > > InputManager::subscribeToResizeEvent(std::function < void(unsigned int, unsigned int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_resizedEventSubscribers.push_back(std::make_shared< std::function < void(unsigned int, unsigned int) > >(subscriber));
+		std::shared_ptr< std::function < void(unsigned int, unsigned int) > > f = std::make_shared< std::function < void(unsigned int, unsigned int) > >(subscriber);
+
+		_inputManager->_resizedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToTextEnteredEvent(std::function < void(sf::String) > subscriber) {
+	std::shared_ptr< std::function < void(sf::String) > > InputManager::subscribeToTextEnteredEvent(std::function < void(sf::String) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_textEnteredEventSubscribers.push_back(std::make_shared< std::function < void(sf::String) > >(subscriber));
+		std::shared_ptr< std::function < void(sf::String) > > f = std::make_shared< std::function < void(sf::String) > >(subscriber);
+
+		_inputManager->_textEnteredEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToGainedFocusEvent(std::function < void() > subscriber) {
+	std::shared_ptr< std::function < void() > > InputManager::subscribeToGainedFocusEvent(std::function < void() > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_gainedFocusEventSubscribers.push_back(std::make_shared< std::function < void() > >(subscriber));
+		std::shared_ptr< std::function < void() > > f = std::make_shared< std::function < void() > >(subscriber);
+
+		_inputManager->_gainedFocusEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToLostFocusEvent(std::function < void() > subscriber) {
+	std::shared_ptr< std::function < void() > > InputManager::subscribeToLostFocusEvent(std::function < void() > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_lostFocusEventSubscribers.push_back(std::make_shared< std::function < void() > >(subscriber));
+		std::shared_ptr< std::function < void() > > f = std::make_shared< std::function < void() > >(subscriber);
+
+		_inputManager->_lostFocusEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToKeyPressedEvent(std::function < void(sf::Keyboard::Key) > subscriber) {
+	std::shared_ptr< std::function < void(sf::Keyboard::Key) > > InputManager::subscribeToKeyPressedEvent(std::function < void(sf::Keyboard::Key) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_keyPressedEventSubscribers.push_back(std::make_shared< std::function < void(sf::Keyboard::Key) > >(subscriber));
+		std::shared_ptr< std::function < void(sf::Keyboard::Key) > > f = std::make_shared< std::function < void(sf::Keyboard::Key) > >(subscriber);
+
+		_inputManager->_keyPressedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToKeyReleasedEvent(std::function < void(sf::Keyboard::Key) > subscriber) {
+	std::shared_ptr< std::function < void(sf::Keyboard::Key) > > InputManager::subscribeToKeyReleasedEvent(std::function < void(sf::Keyboard::Key) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_keyReleasedEventSubscribers.push_back(std::make_shared< std::function < void(sf::Keyboard::Key) > >(subscriber));
+		std::shared_ptr< std::function < void(sf::Keyboard::Key) > > f = std::make_shared< std::function < void(sf::Keyboard::Key) > >(subscriber);
+
+		_inputManager->_keyReleasedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToMouseButtonPressedEvent(std::function < void(sf::Mouse::Button, int, int) > subscriber) {
+	std::shared_ptr< std::function < void(sf::Mouse::Button, int, int) > > InputManager::subscribeToMouseButtonPressedEvent(std::function < void(sf::Mouse::Button, int, int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_mouseButtonPressedEventSubscribers.push_back(std::make_shared< std::function < void(sf::Mouse::Button, int, int) > >(subscriber));
+		std::shared_ptr< std::function < void(sf::Mouse::Button, int, int) > > f = std::make_shared< std::function < void(sf::Mouse::Button, int, int) > >(subscriber);
+
+		_inputManager->_mouseButtonPressedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToMouseButtonReleasedEvent(std::function < void(sf::Mouse::Button, int, int) > subscriber) {
+	std::shared_ptr< std::function < void(sf::Mouse::Button, int, int) > > InputManager::subscribeToMouseButtonReleasedEvent(std::function < void(sf::Mouse::Button, int, int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_mouseButtonReleasedEventSubscribers.push_back(std::make_shared< std::function < void(sf::Mouse::Button, int, int) > >(subscriber));
+		std::shared_ptr< std::function < void(sf::Mouse::Button, int, int) > > f = std::make_shared< std::function < void(sf::Mouse::Button, int, int) > >(subscriber);
+
+		_inputManager->_mouseButtonReleasedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToMouseWheelScrolledEvent(std::function < void(sf::Mouse::Wheel, float, int, int) > subscriber) {
+	std::shared_ptr< std::function < void(sf::Mouse::Wheel, float, int, int) > > InputManager::subscribeToMouseWheelScrolledEvent(std::function < void(sf::Mouse::Wheel, float, int, int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_mouseWheelScrolledEventSubscribers.push_back(std::make_shared< std::function < void(sf::Mouse::Wheel, float, int, int) > >(subscriber));
+		std::shared_ptr< std::function < void(sf::Mouse::Wheel, float, int, int) > > f = std::make_shared< std::function < void(sf::Mouse::Wheel, float, int, int) > >(subscriber);
+
+		_inputManager->_mouseWheelScrolledEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToMouseMovedEvent(std::function < void(int, int) > subscriber) {
+	std::shared_ptr< std::function < void(int, int) > > InputManager::subscribeToMouseMovedEvent(std::function < void(int, int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_mouseMovedEventSubscribers.push_back(std::make_shared< std::function < void(int, int) > >(subscriber));
+		std::shared_ptr< std::function < void(int, int) > > f = std::make_shared< std::function < void(int, int) > >(subscriber);
+
+		_inputManager->_mouseMovedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToMouseEnteredEvent(std::function < void() > subscriber) {
+	std::shared_ptr< std::function < void() > > InputManager::subscribeToMouseEnteredEvent(std::function < void() > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_mouseEnteredEventSubscribers.push_back(std::make_shared< std::function < void() > >(subscriber));
+		std::shared_ptr< std::function < void() > > f = std::make_shared< std::function < void() > >(subscriber);
+
+		_inputManager->_mouseEnteredEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToMouseLeftEvent(std::function < void() > subscriber) {
+	std::shared_ptr< std::function < void() > > InputManager::subscribeToMouseLeftEvent(std::function < void() > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_mouseLeftEventSubscribers.push_back(std::make_shared< std::function < void() > >(subscriber));
+		std::shared_ptr< std::function < void() > > f = std::make_shared< std::function < void() > >(subscriber);
+
+		_inputManager->_mouseLeftEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToJoystickButtonPressedEvent(std::function < void(unsigned int, unsigned int) > subscriber) {
+	std::shared_ptr< std::function < void(unsigned int, unsigned int) > > InputManager::subscribeToJoystickButtonPressedEvent(std::function < void(unsigned int, unsigned int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_joystickButtonPressedEventSubscribers.push_back(std::make_shared< std::function < void(unsigned int, unsigned int) > >(subscriber));
+		std::shared_ptr< std::function < void(unsigned int, unsigned int) > > f = std::make_shared< std::function < void(unsigned int, unsigned int) > >(subscriber);
+
+		_inputManager->_joystickButtonPressedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToJoystickButtonReleasedEvent(std::function < void(unsigned int, unsigned int) > subscriber) {
+	std::shared_ptr< std::function < void(unsigned int, unsigned int) > > InputManager::subscribeToJoystickButtonReleasedEvent(std::function < void(unsigned int, unsigned int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_joystickButtonReleasedEventSubscribers.push_back(std::make_shared< std::function < void(unsigned int, unsigned int) > >(subscriber));
+		std::shared_ptr< std::function < void(unsigned int, unsigned int) > > f = std::make_shared< std::function < void(unsigned int, unsigned int) > >(subscriber);
+
+		_inputManager->_joystickButtonReleasedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToJoystickMovedEvent(std::function < void(unsigned int, sf::Joystick::Axis, float) > subscriber) {
+	std::shared_ptr< std::function < void(unsigned int, sf::Joystick::Axis, float) > > InputManager::subscribeToJoystickMovedEvent(std::function < void(unsigned int, sf::Joystick::Axis, float) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_joystickMovedEventSubscribers.push_back(std::make_shared< std::function < void(unsigned int, sf::Joystick::Axis, float) > >(subscriber));
+		std::shared_ptr< std::function < void(unsigned int, sf::Joystick::Axis, float) > > f = std::make_shared< std::function < void(unsigned int, sf::Joystick::Axis, float) > >(subscriber);
+
+		_inputManager->_joystickMovedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToJoystickConnectedEvent(std::function < void(unsigned int) > subscriber) {
+	std::shared_ptr< std::function < void(unsigned int) > > InputManager::subscribeToJoystickConnectedEvent(std::function < void(unsigned int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_joystickConnectedEventSubscribers.push_back(std::make_shared< std::function < void(unsigned int) > >(subscriber));
+		std::shared_ptr< std::function < void(unsigned int) > > f = std::make_shared< std::function < void(unsigned int) > >(subscriber);
+
+		_inputManager->_joystickConnectedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
-	void InputManager::subscribeToJoystickDisconnectedEvent(std::function < void(unsigned int) > subscriber) {
+	std::shared_ptr<std::function < void(unsigned int) > > InputManager::subscribeToJoystickDisconnectedEvent(std::function < void(unsigned int) > subscriber) {
 		if (_inputManager == 0)
 			_inputManager = new InputManager();
 
-		_inputManager->_joystickDisconnectedEventSubscribers.push_back(std::make_shared< std::function < void(unsigned int) > >(subscriber));
+		std::shared_ptr<std::function < void(unsigned int) > > f = std::make_shared< std::function < void(unsigned int) > >(subscriber);
+
+		_inputManager->_joystickDisconnectedEventSubscribers.push_back(f);
+
+		return f;
 	}
 
 }
