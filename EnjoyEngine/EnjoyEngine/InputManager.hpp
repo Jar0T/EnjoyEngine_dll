@@ -112,5 +112,24 @@ namespace EE {
 		static void subscribeToJoystickConnectedEvent(std::function<void(unsigned int)> subscriber);
 		static void subscribeToJoystickDisconnectedEvent(std::function<void(unsigned int)> subscriber);
 
+		static void unsubscribeToCloseEvent(std::function<void()> subscriber);
+		static void unsubscribeToResizeEvent(std::function<void(unsigned int, unsigned int)> subscriber);
+		static void unsubscribeToTextEnteredEvent(std::function<void(sf::String)> subscriber);
+		static void unsubscribeToGainedFocusEvent(std::function<void()> subscriber);
+		static void unsubscribeToLostFocusEvent(std::function<void()> subscriber);
+		static void unsubscribeToKeyPressedEvent(std::function<void(sf::Keyboard::Key)> subscriber);
+		static void unsubscribeToKeyReleasedEvent(std::function<void(sf::Keyboard::Key)> subscriber);
+		static void unsubscribeToMouseButtonPressedEvent(std::function<void(sf::Mouse::Button, int, int)> subscriber);
+		static void unsubscribeToMouseButtonReleasedEvent(std::function<void(sf::Mouse::Button, int, int)> subscriber);
+		static void unsubscribeToMouseWheelScrolledEvent(std::function<void(sf::Mouse::Wheel, float, int, int)> subscriber);
+		static void unsubscribeToMouseMovedEvent(std::function<void(int, int)> subscriber);
+		static void unsubscribeToMouseEnteredEvent(std::function<void()> subscriber);
+		static void unsubscribeToMouseLeftEvent(std::function<void()> subscriber);
+		static void unsubscribeToJoystickButtonPressedEvent(std::function<void(unsigned int, unsigned int)> subscriber);
+		static void unsubscribeToJoystickButtonReleasedEvent(std::function<void(unsigned int, unsigned int)> subscriber);
+		static void unsubscribeToJoystickMovedEvent(std::function<void(unsigned int, sf::Joystick::Axis, float)> subscriber);
+		static void unsubscribeToJoystickConnectedEvent(std::function<void(unsigned int)> subscriber);
+		static void unsubscribeToJoystickDisconnectedEvent(std::function<void(unsigned int)> subscriber);
+
 	};
 }

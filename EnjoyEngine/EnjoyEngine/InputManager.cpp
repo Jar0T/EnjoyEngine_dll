@@ -450,4 +450,238 @@ namespace EE {
 		_inputManager->_joystickDisconnectedEventSubscribers.push_back(subscriber);
 	}
 
+	void InputManager::unsubscribeToCloseEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_closedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_closedEventSubscribers.begin(), 
+				_inputManager->_closedEventSubscribers.end(), 
+				subscriber), 
+			_inputManager->_closedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToResizeEvent(std::function<void(unsigned int, unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_resizedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_resizedEventSubscribers.begin(),
+				_inputManager->_resizedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_resizedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToTextEnteredEvent(std::function<void(sf::String)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_textEnteredEventSubscribers.erase(
+			std::remove(
+				_inputManager->_textEnteredEventSubscribers.begin(),
+				_inputManager->_textEnteredEventSubscribers.end(),
+				subscriber),
+			_inputManager->_textEnteredEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToGainedFocusEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_gainedFocusEventSubscribers.erase(
+			std::remove(
+				_inputManager->_gainedFocusEventSubscribers.begin(),
+				_inputManager->_gainedFocusEventSubscribers.end(),
+				subscriber),
+			_inputManager->_gainedFocusEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToLostFocusEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_lostFocusEventSubscribers.erase(
+			std::remove(
+				_inputManager->_lostFocusEventSubscribers.begin(),
+				_inputManager->_lostFocusEventSubscribers.end(),
+				subscriber),
+			_inputManager->_lostFocusEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToKeyPressedEvent(std::function<void(sf::Keyboard::Key)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_keyPressedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_keyPressedEventSubscribers.begin(),
+				_inputManager->_keyPressedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_keyPressedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToKeyReleasedEvent(std::function<void(sf::Keyboard::Key)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_keyReleasedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_keyReleasedEventSubscribers.begin(),
+				_inputManager->_keyReleasedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_keyReleasedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToMouseButtonPressedEvent(std::function<void(sf::Mouse::Button, int, int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseButtonPressedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_mouseButtonPressedEventSubscribers.begin(),
+				_inputManager->_mouseButtonPressedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_mouseButtonPressedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToMouseButtonReleasedEvent(std::function<void(sf::Mouse::Button, int, int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseButtonReleasedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_mouseButtonReleasedEventSubscribers.begin(),
+				_inputManager->_mouseButtonReleasedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_mouseButtonReleasedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToMouseWheelScrolledEvent(std::function<void(sf::Mouse::Wheel, float, int, int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseWheelScrolledEventSubscribers.erase(
+			std::remove(
+				_inputManager->_mouseWheelScrolledEventSubscribers.begin(),
+				_inputManager->_mouseWheelScrolledEventSubscribers.end(),
+				subscriber),
+			_inputManager->_mouseWheelScrolledEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToMouseMovedEvent(std::function<void(int, int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseMovedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_mouseMovedEventSubscribers.begin(),
+				_inputManager->_mouseMovedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_mouseMovedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToMouseEnteredEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseEnteredEventSubscribers.erase(
+			std::remove(
+				_inputManager->_mouseEnteredEventSubscribers.begin(),
+				_inputManager->_mouseEnteredEventSubscribers.end(),
+				subscriber),
+			_inputManager->_mouseEnteredEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToMouseLeftEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseLeftEventSubscribers.erase(
+			std::remove(
+				_inputManager->_mouseLeftEventSubscribers.begin(),
+				_inputManager->_mouseLeftEventSubscribers.end(),
+				subscriber),
+			_inputManager->_mouseLeftEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToJoystickButtonPressedEvent(std::function<void(unsigned int, unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickButtonPressedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_joystickButtonPressedEventSubscribers.begin(),
+				_inputManager->_joystickButtonPressedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_joystickButtonPressedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToJoystickButtonReleasedEvent(std::function<void(unsigned int, unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickButtonReleasedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_joystickButtonReleasedEventSubscribers.begin(),
+				_inputManager->_joystickButtonReleasedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_joystickButtonReleasedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToJoystickMovedEvent(std::function<void(unsigned int, sf::Joystick::Axis, float)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickMovedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_joystickMovedEventSubscribers.begin(),
+				_inputManager->_joystickMovedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_joystickMovedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToJoystickConnectedEvent(std::function<void(unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickConnectedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_joystickConnectedEventSubscribers.begin(),
+				_inputManager->_joystickConnectedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_joystickConnectedEventSubscribers.end()
+		);
+	}
+
+	void InputManager::unsubscribeToJoystickDisconnectedEvent(std::function<void(unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickDisconnectedEventSubscribers.erase(
+			std::remove(
+				_inputManager->_joystickDisconnectedEventSubscribers.begin(),
+				_inputManager->_joystickDisconnectedEventSubscribers.end(),
+				subscriber),
+			_inputManager->_joystickDisconnectedEventSubscribers.end()
+		);
+	}
+
 }
