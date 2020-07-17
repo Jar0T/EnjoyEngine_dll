@@ -38,9 +38,9 @@ namespace EE {
 		std::map<std::string, Keyboard> _keyboard;
 		std::map<std::string, Mouse> _mouse;
 
-		std::map<unsigned int, std::map<unsigned int, std::pair<bool, bool>>> _joystickButtonsStates;
-		std::map<sf::Keyboard::Key, std::pair<bool, bool>> _keyboardKeysStates;
-		std::map<sf::Mouse::Button, std::pair<bool, bool>> _mouseButtonsStates;
+		std::map < unsigned int, std::map < unsigned int, bool > > _joystickButtonsStates;
+		std::map < sf::Keyboard::Key, bool > _keyboardKeysStates;
+		std::map < sf::Mouse::Button, bool > _mouseButtonsStates;
 
 		std::vector< std::weak_ptr< std::function< void() > > > _closedEventSubscribers;
 		std::vector< std::weak_ptr< std::function< void(unsigned int, unsigned int) > > > _resizedEventSubscribers;
@@ -76,16 +76,10 @@ namespace EE {
 		static float getAxis(std::string axisName);
 		static bool getButtonDown(std::string buttonName);
 		static bool getButtonUp(std::string buttonName);
-		static bool getButtonPressed(std::string buttonName);
-		static bool getButtonReleased(std::string buttonName);
 		static bool getKeyDown(std::string keyName);
 		static bool getKeyUp(std::string keyName);
-		static bool getKeyPressed(std::string keyName);
-		static bool getKeyReleased(std::string keyName);
 		static bool getMouseButtonDown(std::string mouseButtonName);
 		static bool getMouseButtonUp(std::string mouseButtonName);
-		static bool getMouseButtonPressed(std::string mouseButtonName);
-		static bool getMouseButtonReleased(std::string mouseButtonName);
 		static Vector2D<int> getMousePosition();
 		static Vector2D<int> getMousePositionRaw();
 
