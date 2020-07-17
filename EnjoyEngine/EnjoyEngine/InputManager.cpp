@@ -8,19 +8,19 @@ namespace EE {
 	InputManager::InputManager() {
 		for (unsigned int i = 0; i < 8; i++) {
 			for (unsigned int j = 0; j < 32; j++) {
-				_joystickButtonsStates[i][j].first = false;
-				_joystickButtonsStates[i][j].second = false;
+				_joystickButtonsStates[i][j] = false;
+				_joystickButtonsStates[i][j] = false;
 			}
 		}
 
 		for (int i = 0; i < sf::Keyboard::KeyCount; i++) {
-			_keyboardKeysStates[(sf::Keyboard::Key)i].first = false;
-			_keyboardKeysStates[(sf::Keyboard::Key)i].second = false;
+			_keyboardKeysStates[(sf::Keyboard::Key)i] = false;
+			_keyboardKeysStates[(sf::Keyboard::Key)i] = false;
 		}
 
 		for (int i = 0; i < sf::Mouse::ButtonCount; i++) {
-			_mouseButtonsStates[(sf::Mouse::Button)i].first = false;
-			_mouseButtonsStates[(sf::Mouse::Button)i].second = false;
+			_mouseButtonsStates[(sf::Mouse::Button)i] = false;
+			_mouseButtonsStates[(sf::Mouse::Button)i] = false;
 		}
 	}
 
@@ -31,20 +31,17 @@ namespace EE {
 		for (unsigned int i = 0; i < 8; i++) {
 			if (sf::Joystick::isConnected(i)) {
 				for (unsigned int j = 0; j < sf::Joystick::getButtonCount(i); j++) {
-					_inputManager->_joystickButtonsStates.at(i).at(j).second = _inputManager->_joystickButtonsStates.at(i).at(j).first;
-					_inputManager->_joystickButtonsStates.at(i).at(j).first = sf::Joystick::isButtonPressed(i, j);
+					_inputManager->_joystickButtonsStates.at(i).at(j) = sf::Joystick::isButtonPressed(i, j);
 				}
 			}
 		}
 
 		for (int i = 0; i < sf::Keyboard::KeyCount; i++) {
-			_inputManager->_keyboardKeysStates.at((sf::Keyboard::Key)i).second = _inputManager->_keyboardKeysStates.at((sf::Keyboard::Key)i).first;
-			_inputManager->_keyboardKeysStates.at((sf::Keyboard::Key)i).first = sf::Keyboard::isKeyPressed((sf::Keyboard::Key)i);
+			_inputManager->_keyboardKeysStates.at((sf::Keyboard::Key)i) = sf::Keyboard::isKeyPressed((sf::Keyboard::Key)i);
 		}
 
 		for (int i = 0; i < sf::Mouse::ButtonCount; i++) {
-			_inputManager->_mouseButtonsStates.at((sf::Mouse::Button)i).second = _inputManager->_mouseButtonsStates.at((sf::Mouse::Button)i).first;
-			_inputManager->_mouseButtonsStates.at((sf::Mouse::Button)i).first = sf::Mouse::isButtonPressed((sf::Mouse::Button)i);
+			_inputManager->_mouseButtonsStates.at((sf::Mouse::Button)i) = sf::Mouse::isButtonPressed((sf::Mouse::Button)i);
 		}
 	}
 
@@ -341,7 +338,7 @@ namespace EE {
 
 		Joystick joystick = _inputManager->_joystick[buttonName];
 
-		return _inputManager->_joystickButtonsStates.at(joystick.joystick).at(joystick.button).first;
+		return _inputManager->_joystickButtonsStates.at(joystick.joystick).at(joystick.button);
 	}
 
 	bool InputManager::getButtonUp(std::string buttonName) {
@@ -350,25 +347,7 @@ namespace EE {
 
 		Joystick joystick = _inputManager->_joystick[buttonName];
 
-		return !(_inputManager->_joystickButtonsStates.at(joystick.joystick).at(joystick.button).first);
-	}
-
-	bool InputManager::getButtonPressed(std::string buttonName) {
-		if (_inputManager == 0)
-			_inputManager = new InputManager();
-
-		Joystick joystick = _inputManager->_joystick[buttonName];
-
-		return (_inputManager->_joystickButtonsStates.at(joystick.joystick).at(joystick.button).first && !(_inputManager->_joystickButtonsStates.at(joystick.joystick).at(joystick.button).second));
-	}
-
-	bool InputManager::getButtonReleased(std::string buttonName) {
-		if (_inputManager == 0)
-			_inputManager = new InputManager();
-
-		Joystick joystick = _inputManager->_joystick[buttonName];
-
-		return (!(_inputManager->_joystickButtonsStates.at(joystick.joystick).at(joystick.button).first) && _inputManager->_joystickButtonsStates.at(joystick.joystick).at(joystick.button).second);
+		return !(_inputManager->_joystickButtonsStates.at(joystick.joystick).at(joystick.button));
 	}
 
 	bool InputManager::getKeyDown(std::string keyName) {
@@ -377,7 +356,7 @@ namespace EE {
 
 		Keyboard keyboard = _inputManager->_keyboard[keyName];
 
-		return _inputManager->_keyboardKeysStates.at(keyboard.key).first;
+		return _inputManager->_keyboardKeysStates.at(keyboard.key);
 	}
 
 	bool InputManager::getKeyUp(std::string keyName) {
@@ -386,25 +365,7 @@ namespace EE {
 
 		Keyboard keyboard = _inputManager->_keyboard[keyName];
 
-		return !(_inputManager->_keyboardKeysStates.at(keyboard.key).first);
-	}
-
-	bool InputManager::getKeyPressed(std::string keyName) {
-		if (_inputManager == 0)
-			_inputManager = new InputManager();
-
-		Keyboard keyboard = _inputManager->_keyboard[keyName];
-
-		return (_inputManager->_keyboardKeysStates.at(keyboard.key).first && !(_inputManager->_keyboardKeysStates.at(keyboard.key).second));
-	}
-
-	bool InputManager::getKeyReleased(std::string keyName) {
-		if (_inputManager == 0)
-			_inputManager = new InputManager();
-
-		Keyboard keyboard = _inputManager->_keyboard[keyName];
-
-		return (!(_inputManager->_keyboardKeysStates.at(keyboard.key).first) && _inputManager->_keyboardKeysStates.at(keyboard.key).second);
+		return !(_inputManager->_keyboardKeysStates.at(keyboard.key));
 	}
 
 	bool InputManager::getMouseButtonDown(std::string mouseButtonName) {
@@ -413,7 +374,7 @@ namespace EE {
 
 		Mouse mouse = _inputManager->_mouse[mouseButtonName];
 
-		return _inputManager->_mouseButtonsStates.at(mouse.button).first;
+		return _inputManager->_mouseButtonsStates.at(mouse.button);
 	}
 
 	bool InputManager::getMouseButtonUp(std::string mouseButtonName) {
@@ -422,25 +383,7 @@ namespace EE {
 
 		Mouse mouse = _inputManager->_mouse[mouseButtonName];
 
-		return !(_inputManager->_mouseButtonsStates.at(mouse.button).first);
-	}
-
-	bool InputManager::getMouseButtonPressed(std::string mouseButtonName) {
-		if (_inputManager == 0)
-			_inputManager = new InputManager();
-
-		Mouse mouse = _inputManager->_mouse[mouseButtonName];
-
-		return (_inputManager->_mouseButtonsStates.at(mouse.button).first && !(_inputManager->_mouseButtonsStates.at(mouse.button).second));
-	}
-
-	bool InputManager::getMouseButtonReleased(std::string mouseButtonName) {
-		if (_inputManager == 0)
-			_inputManager = new InputManager();
-
-		Mouse mouse = _inputManager->_mouse[mouseButtonName];
-
-		return (!(_inputManager->_mouseButtonsStates.at(mouse.button).first) && _inputManager->_mouseButtonsStates.at(mouse.button).second);
+		return !(_inputManager->_mouseButtonsStates.at(mouse.button));
 	}
 
 	Vector2D<int> InputManager::getMousePosition() {
