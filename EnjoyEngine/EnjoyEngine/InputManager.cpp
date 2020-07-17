@@ -47,10 +47,112 @@ namespace EE {
 			_inputManager->_mouseButtonsStates.at((sf::Mouse::Button)i).first = sf::Mouse::isButtonPressed((sf::Mouse::Button)i);
 		}
 	}
-	
-	InputManager::~InputManager() {
 
+	void InputManager::handleEvents() {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		sf::Event e;
+		while (GameData::window().pollEvent(e)) {
+			switch (e.type)	{
+			case sf::Event::Closed:
+				for (auto func : _inputManager->_closedEventSubscribers) {
+					func();
+				}
+				break;
+			case sf::Event::Resized:
+				GameData::onWindowResize();
+				for (auto func : _inputManager->_resizedEventSubscribers) {
+					func(e.size.width, e.size.height);
+				}
+				break;
+			case sf::Event::TextEntered:
+				for (auto func : _inputManager->_textEnteredEventSubscribers) {
+					func(e.text.unicode);
+				}
+				break;
+			case sf::Event::GainedFocus:
+				for (auto func : _inputManager->_gainedFocusEventSubscribers) {
+					func();
+				}
+				break;
+			case sf::Event::LostFocus:
+				for (auto func : _inputManager->_lostFocusEventSubscribers) {
+					func();
+				}
+				break;
+			case sf::Event::KeyPressed:
+				for (auto func : _inputManager->_keyPressedEventSubscribers) {
+					func(e.key.code);
+				}
+				break;
+			case sf::Event::KeyReleased:
+				for (auto func : _inputManager->_keyReleasedEventSubscribers) {
+					func(e.key.code);
+				}
+				break;
+			case sf::Event::MouseButtonPressed:
+				for (auto func : _inputManager->_mouseButtonPressedEventSubscribers) {
+					func(e.mouseButton.button, e.mouseButton.x, e.mouseButton.y);
+				}
+				break;
+			case sf::Event::MouseButtonReleased:
+				for (auto func : _inputManager->_mouseButtonReleasedEventSubscribers) {
+					func(e.mouseButton.button, e.mouseButton.x, e.mouseButton.y);
+				}
+				break;
+			case sf::Event::MouseWheelScrolled:
+				for (auto func : _inputManager->_mouseWheelScrolledEventSubscribers) {
+					func(e.mouseWheelScroll.wheel, e.mouseWheelScroll.delta, e.mouseWheelScroll.x, e.mouseWheelScroll.y);
+				}
+				break;
+			case sf::Event::MouseMoved:
+				for (auto func : _inputManager->_mouseMovedEventSubscribers) {
+					func(e.mouseMove.x, e.mouseMove.y);
+				}
+				break;
+			case sf::Event::MouseEntered:
+				for (auto func : _inputManager->_mouseEnteredEventSubscribers) {
+					func();
+				}
+				break;
+			case sf::Event::MouseLeft:
+				for (auto func : _inputManager->_mouseLeftEventSubscribers) {
+					func();
+				}
+				break;
+			case sf::Event::JoystickButtonPressed:
+				for (auto func : _inputManager->_joystickButtonPressedEventSubscribers) {
+					func(e.joystickButton.joystickId, e.joystickButton.button);
+				}
+				break;
+			case sf::Event::JoystickButtonReleased:
+				for (auto func : _inputManager->_joystickButtonReleasedEventSubscribers) {
+					func(e.joystickButton.joystickId, e.joystickButton.button);
+				}
+				break;
+			case sf::Event::JoystickMoved:
+				for (auto func : _inputManager->_joystickMovedEventSubscribers) {
+					func(e.joystickMove.joystickId, e.joystickMove.axis, e.joystickMove.position);
+				}
+				break;
+			case sf::Event::JoystickConnected:
+				for (auto func : _inputManager->_joystickConnectedEventSubscribers) {
+					func(e.joystickConnect.joystickId);
+				}
+				break;
+			case sf::Event::JoystickDisconnected:
+				for (auto func : _inputManager->_joystickDisconnectedEventSubscribers) {
+					func(e.joystickConnect.joystickId);
+				}
+				break;
+			default:
+				break;
+			}
+		}
 	}
+	
+	InputManager::~InputManager() {}
 
 	float InputManager::getAxis(std::string axisName) {
 		if (_inputManager == 0)

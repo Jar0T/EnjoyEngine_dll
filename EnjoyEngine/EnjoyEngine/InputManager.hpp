@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <functional>
 
 #include "SFML/Window.hpp"
 #include "GameData.hpp"
@@ -40,11 +41,31 @@ namespace EE {
 		std::map<sf::Keyboard::Key, std::pair<bool, bool>> _keyboardKeysStates;
 		std::map<sf::Mouse::Button, std::pair<bool, bool>> _mouseButtonsStates;
 
+		std::vector<std::function<void()>> _closedEventSubscribers;
+		std::vector<std::function<void(unsigned int, unsigned int)>> _resizedEventSubscribers;
+		std::vector<std::function<void(sf::String)>> _textEnteredEventSubscribers;
+		std::vector<std::function<void()>> _gainedFocusEventSubscribers;
+		std::vector<std::function<void()>> _lostFocusEventSubscribers;
+		std::vector<std::function<void(sf::Keyboard::Key)>> _keyPressedEventSubscribers;
+		std::vector<std::function<void(sf::Keyboard::Key)>> _keyReleasedEventSubscribers;
+		std::vector<std::function<void(sf::Mouse::Button, int, int)>> _mouseButtonPressedEventSubscribers;
+		std::vector<std::function<void(sf::Mouse::Button, int, int)>> _mouseButtonReleasedEventSubscribers;
+		std::vector<std::function<void(sf::Mouse::Wheel, float, int, int)>> _mouseWheelScrolledEventSubscribers;
+		std::vector<std::function<void(int, int)>> _mouseMovedEventSubscribers;
+		std::vector<std::function<void()>> _mouseEnteredEventSubscribers;
+		std::vector<std::function<void()>> _mouseLeftEventSubscribers;
+		std::vector<std::function<void(unsigned int, unsigned int)>> _joystickButtonPressedEventSubscribers;
+		std::vector<std::function<void(unsigned int, unsigned int)>> _joystickButtonReleasedEventSubscribers;
+		std::vector<std::function<void(unsigned int, sf::Joystick::Axis, float)>> _joystickMovedEventSubscribers;
+		std::vector<std::function<void(unsigned int)>> _joystickConnectedEventSubscribers;
+		std::vector<std::function<void(unsigned int)>> _joystickDisconnectedEventSubscribers;
+
 		InputManager();
 		InputManager(const InputManager&) = delete;
 		InputManager& operator=(const InputManager&) = delete;
 
 		static void updateButtonsStates();
+		static void handleEvents();
 
 		friend int Game::Play();
 
