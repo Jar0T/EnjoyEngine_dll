@@ -23,11 +23,6 @@ namespace EE {
 		/// <para>Override this method in your state.</para>
 		/// </summary>
 		virtual void update() = 0;
-		/// <summary>
-		/// <para>Called every frame. Put event handling here.</para>
-		/// <para>Override this method in your state.</para>
-		/// </summary>
-		virtual void handleEvents() = 0;
 
 	};
 }

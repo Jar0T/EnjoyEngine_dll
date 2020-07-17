@@ -20,7 +20,7 @@ namespace EE {
 			if (state != nullptr) {
 				InputManager::updateButtonsStates();
 				state->update();
-				state->handleEvents();
+				InputManager::handleEvents();
 			}
 		}
 
