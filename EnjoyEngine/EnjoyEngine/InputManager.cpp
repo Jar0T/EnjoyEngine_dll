@@ -324,4 +324,130 @@ namespace EE {
 		_inputManager->_mouse[mouseButtonName] = Mouse{ button };
 	}
 
+	void InputManager::subscribeToCloseEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_closedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToResizeEvent(std::function<void(unsigned int, unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_resizedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToTextEnteredEvent(std::function<void(sf::String)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_textEnteredEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToGainedFocusEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_gainedFocusEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToLostFocusEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_lostFocusEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToKeyPressedEvent(std::function<void(sf::Keyboard::Key)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_keyPressedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToKeyReleasedEvent(std::function<void(sf::Keyboard::Key)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_keyReleasedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToMouseButtonPressedEvent(std::function<void(sf::Mouse::Button, int, int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseButtonPressedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToMouseButtonReleasedEvent(std::function<void(sf::Mouse::Button, int, int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseButtonReleasedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToMouseWheelScrolledEvent(std::function<void(sf::Mouse::Wheel, float, int, int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseWheelScrolledEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToMouseMovedEvent(std::function<void(int, int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseMovedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToMouseEnteredEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseEnteredEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToMouseLeftEvent(std::function<void()> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_mouseLeftEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToJoystickButtonPressedEvent(std::function<void(unsigned int, unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickButtonPressedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToJoystickButtonReleasedEvent(std::function<void(unsigned int, unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickButtonReleasedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToJoystickMovedEvent(std::function<void(unsigned int, sf::Joystick::Axis, float)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickMovedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToJoystickConnectedEvent(std::function<void(unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickConnectedEventSubscribers.push_back(subscriber);
+	}
+
+	void InputManager::subscribeToJoystickDisconnectedEvent(std::function<void(unsigned int)> subscriber) {
+		if (_inputManager == 0)
+			_inputManager = new InputManager();
+
+		_inputManager->_joystickDisconnectedEventSubscribers.push_back(subscriber);
+	}
+
 }
