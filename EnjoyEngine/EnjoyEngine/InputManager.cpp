@@ -86,6 +86,7 @@ namespace EE {
 						++it1;
 					}
 				}
+				GameData::window().close();
 				break;
 
 			case sf::Event::Resized:
