@@ -16,6 +16,11 @@ namespace EE {
 		_title = "Window";
 
 		_ecs = std::make_shared<ECS>();
+
+		_camera.push_back(std::make_shared<Camera>());
+		sf::Vector2u size = _window->getSize();
+		_camera[0]->view = sf::View(sf::FloatRect(0.f, 0.f, (float)size.x, (float)size.y));
+		_window->setView(_camera[0]->view);
 	}
 
 	GameData::~GameData() {
@@ -34,7 +39,9 @@ namespace EE {
 			_gameData = new GameData();
 
 		_gameData->_window->setSize(sf::Vector2u(width, height));
-		_gameData->_window->setView(sf::View(sf::FloatRect(0.f, 0.f, (float)width, (float)height)));
+		for (auto& camera : _gameData->_camera) {
+			camera->view.setSize((float)width, (float)height);
+		}
 	}
 
 	void GameData::setWindowTitle(std::string title) {
@@ -61,7 +68,9 @@ namespace EE {
 			_gameData = new GameData();
 
 		sf::Vector2u size = _gameData->_window->getSize();
-		_gameData->_window->setView(sf::View(sf::FloatRect(0.f, 0.f, (float)size.x, (float)size.y)));
+		for (auto& camera : _gameData->_camera) {
+			camera->view.setSize((float)size.x, (float)size.y);
+		}
 	}
 
 	ECS& GameData::ecs() {
@@ -69,5 +78,22 @@ namespace EE {
 			_gameData = new GameData();
 
 		return *_gameData->_ecs;
+	}
+	
+	std::shared_ptr<Camera> GameData::camera(size_t index) {
+		if (_gameData == 0)
+			_gameData = new GameData();
+
+		if (index < _gameData->_camera.size())
+			return _gameData->_camera[index];
+		return nullptr;
+	}
+
+	size_t GameData::addCamera() {
+		if (_gameData == 0)
+			_gameData = new GameData();
+
+		_gameData->_camera.push_back(std::make_shared<Camera>());
+		return _gameData->_camera.size() - 1;
 	}
 }

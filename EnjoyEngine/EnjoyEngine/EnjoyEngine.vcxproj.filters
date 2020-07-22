@@ -67,6 +67,9 @@
     <Filter Include="Pliki źródłowe\ECS\System">
       <UniqueIdentifier>{20eef982-6ba1-49f5-bd75-9c91f7821d13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Game objects">
+      <UniqueIdentifier>{ce4b45f0-38f9-418f-ad7d-239b79e10854}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="ecs.hpp">
       <Filter>Pliki nagłówkowe\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.hpp">
+      <Filter>Pliki nagłówkowe\Game objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
