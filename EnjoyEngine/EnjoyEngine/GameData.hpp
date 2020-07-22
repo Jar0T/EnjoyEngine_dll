@@ -6,10 +6,14 @@
 // System headers
 #include <limits>
 #include <string>
+#include <vector>
+
+// SFML headers
+#include "SFML/Graphics.hpp"
 
 // My headers
-#include "SFML/Graphics.hpp"
 #include "ecs.hpp"
+#include "Camera.hpp"
 
 #ifdef ENJOYENGINE_EXPORTS
 #define ENJOYENGINE_API __declspec(dllexport)
@@ -28,6 +32,7 @@ namespace EE {
 		std::shared_ptr<sf::RenderWindow> _window;
 		std::string _title;
 		std::shared_ptr<ECS> _ecs;
+		std::vector< std::shared_ptr< Camera > > _camera;
 
 		GameData();
 		GameData(int width, int height);
@@ -64,7 +69,24 @@ namespace EE {
 		/// </summary>
 		static void onWindowResize();
 
+		/// <summary>
+		/// Getter for ECS
+		/// </summary>
+		/// <returns>Reference to ECS</returns>
 		static ECS& ecs();
+
+		/// <summary>
+		/// Getter fot Camera
+		/// </summary>
+		/// <param name="index">Index of camera</param>
+		/// <returns>Shared pointer to camera</returns>
+		static std::shared_ptr<Camera> camera(size_t index);
+
+		/// <summary>
+		/// Method for adding new camera
+		/// </summary>
+		/// <returns>Index of added camera</returns>
+		static size_t addCamera();
 
 	};
 }

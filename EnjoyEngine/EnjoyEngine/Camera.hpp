@@ -10,12 +10,8 @@ namespace EE {
 	/// </summary>
 	struct Camera {
 		/// <summary>
-		/// Camera's position
-		/// </summary>
-		Vector2D<float> position = Vector2D<float>{ 0.f, 0.f };
-		/// <summary>
 		/// Camera's view
 		/// </summary>
-		sf::View view = sf::View(sf::Vector2f{ 0.f, 0.f }, sf::Vector2f{ 800.f, 600.f });
+		sf::View view = sf::View(sf::Vector2f{ 400.f, 300.f }, sf::Vector2f{ 800.f, 600.f });
 	};
 }
