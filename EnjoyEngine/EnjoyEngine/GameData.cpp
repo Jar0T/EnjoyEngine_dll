@@ -39,7 +39,9 @@ namespace EE {
 			_gameData = new GameData();
 
 		_gameData->_window->setSize(sf::Vector2u(width, height));
-		_gameData->_window->setView(sf::View(sf::FloatRect(0.f, 0.f, (float)width, (float)height)));
+		for (auto& camera : _gameData->_camera) {
+			camera->view.setSize((float)width, (float)height);
+		}
 	}
 
 	void GameData::setWindowTitle(std::string title) {
