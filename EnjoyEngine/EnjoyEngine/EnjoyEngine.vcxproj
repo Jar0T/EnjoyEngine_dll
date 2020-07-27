@@ -175,6 +175,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameData.hpp" />
+    <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="InputManager.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SoundManager.hpp" />
@@ -191,6 +192,7 @@
     <ClCompile Include="ECSSystem.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameData.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
