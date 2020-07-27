@@ -26,6 +26,9 @@ namespace EE {
 		/// </summary>
 		virtual void update() = 0;
 
+		/// <summary>
+		/// Displays rendered images. You don't have to override it
+		/// </summary>
 		virtual void display();
 	};
 }
