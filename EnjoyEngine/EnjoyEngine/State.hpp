@@ -1,5 +1,7 @@
 #pragma once
 
+#include "GameData.hpp"
+
 #ifdef ENJOYENGINE_EXPORTS
 #define ENJOYENGINE_API __declspec(dllexport)
 #else
@@ -24,5 +26,9 @@ namespace EE {
 		/// </summary>
 		virtual void update() = 0;
 
+		/// <summary>
+		/// Displays rendered images. You don't have to override it
+		/// </summary>
+		virtual void display();
 	};
 }

@@ -7,6 +7,7 @@
 #include <limits>
 #include <string>
 #include <vector>
+#include <map>
 
 // SFML headers
 #include "SFML/Graphics.hpp"
@@ -33,6 +34,7 @@ namespace EE {
 		std::string _title;
 		std::shared_ptr<ECS> _ecs;
 		std::vector< std::shared_ptr< Camera > > _camera;
+		std::shared_ptr< std::map< int, std::shared_ptr< sf::RenderTexture > > > _renderLayers;
 
 		GameData();
 		GameData(int width, int height);
@@ -87,6 +89,18 @@ namespace EE {
 		/// </summary>
 		/// <returns>Index of added camera</returns>
 		static size_t addCamera();
+
+		/// <summary>
+		/// Method for getting map of sf::RenderTextures
+		/// </summary>
+		/// <returns>shared pointer to map</returns>
+		static std::shared_ptr< std::map< int, std::shared_ptr< sf::RenderTexture > > > renderLayers();
+
+		/// <summary>
+		/// Getter for render layer's keys sorted ascending
+		/// </summary>
+		/// <returns>Vector of keys</returns>
+		static std::vector< int > getSortedRenderLayersKeys();
 
 	};
 }

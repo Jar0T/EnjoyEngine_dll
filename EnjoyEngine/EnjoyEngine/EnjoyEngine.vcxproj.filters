@@ -70,6 +70,9 @@
     <Filter Include="Pliki nagłówkowe\Game objects">
       <UniqueIdentifier>{ce4b45f0-38f9-418f-ad7d-239b79e10854}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\Game objects">
+      <UniqueIdentifier>{8193ff98-5429-4de1-aa24-33950aac460e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -165,7 +168,7 @@
       <Filter>Pliki źródłowe\ECS\System</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Pliki źródłowe\Game data</Filter>
+      <Filter>Pliki źródłowe\Game objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

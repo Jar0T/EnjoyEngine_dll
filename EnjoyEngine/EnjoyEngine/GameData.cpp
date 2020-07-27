@@ -21,6 +21,8 @@ namespace EE {
 		sf::Vector2u size = _window->getSize();
 		_camera[0]->view = sf::View(sf::FloatRect(0.f, 0.f, (float)size.x, (float)size.y));
 		_window->setView(_camera[0]->view);
+
+		_renderLayers = std::make_shared<std::map< int, std::shared_ptr< sf::RenderTexture > > >();
 	}
 
 	GameData::~GameData() {
@@ -95,5 +97,27 @@ namespace EE {
 
 		_gameData->_camera.push_back(std::make_shared<Camera>());
 		return _gameData->_camera.size() - 1;
+	}
+	
+	std::shared_ptr<std::map<int, std::shared_ptr< sf::RenderTexture > > > GameData::renderLayers() {
+		if (_gameData == 0)
+			_gameData = new GameData();
+
+		return _gameData->_renderLayers;
+	}
+	
+	std::vector< int > GameData::getSortedRenderLayersKeys() {
+		if (_gameData == 0)
+			_gameData = new GameData();
+
+		std::vector< int > keys;
+
+		for (auto& layer : *_gameData->_renderLayers) {
+			keys.push_back(layer.first);
+		}
+
+		std::sort(keys.begin(), keys.end());
+
+		return keys;
 	}
 }
