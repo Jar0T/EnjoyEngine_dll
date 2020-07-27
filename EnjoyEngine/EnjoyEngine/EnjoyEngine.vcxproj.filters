@@ -120,6 +120,9 @@
     <ClInclude Include="Camera.hpp">
       <Filter>Pliki nagłówkowe\Game objects</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.hpp">
+      <Filter>Pliki nagłówkowe\Game objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -160,6 +163,9 @@
     </ClCompile>
     <ClCompile Include="ECSSystem.cpp">
       <Filter>Pliki źródłowe\ECS\System</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Pliki źródłowe\Game data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
