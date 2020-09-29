@@ -22,6 +22,7 @@ namespace EE {
 				state->update();
 				state->display();
 				InputManager::handleEvents();
+				GameData::ecs().updateSystems();
 			}
 		}
 
